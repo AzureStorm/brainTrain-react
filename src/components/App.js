@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard";
 import About from "./About";
 import Route from "./Route";
 import SignIn from "./SignIn";
+import Categories from "./Categories";
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
       </Route>
       <Route path="/sign-up">
         <SignIn />
+      </Route>
+      <Route path="/categories">
+        <Categories />
       </Route>
     </body>
   );

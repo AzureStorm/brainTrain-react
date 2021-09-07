@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "../Link";
 
 const OverViewCard = ({ text }) => {
   const renderedCard = text.map((texts) => {
@@ -15,16 +16,16 @@ const OverViewCard = ({ text }) => {
                 {texts.head}
               </h5>
               <p class="text-white">{texts.details}</p>
-              <a
+              <Link
                 class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                href="categories.html"
+                href="./categories"
               >
                 {texts.routeHeader}
                 <i
                   class="fas fa-arrow-right text-sm ms-1"
                   aria-hidden="true"
                 ></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
