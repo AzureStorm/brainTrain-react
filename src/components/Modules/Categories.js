@@ -161,9 +161,6 @@ const Categories = ({ selectLessonNum, selectLessonMax }) => {
         </td>
         <td class="align-middle">
           <button
-            onClick={(e) => {
-              console.log("hey");
-            }}
             class="btn btn-link text-secondary mb-0"
             aria-haspopup="true"
             aria-expanded="false"
