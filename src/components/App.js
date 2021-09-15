@@ -11,6 +11,7 @@ import Test from "./Test";
 const App = () => {
   const [lessonNum, selectLessonNum] = useState(0);
   const [lessonMax, selectLessonMax] = useState(0);
+  const [header, selectHeader] = useState("");
 
   return (
     <body className="app bg-gray-100">
@@ -37,10 +38,11 @@ const App = () => {
         <Categories
           selectLessonNum={selectLessonNum}
           selectLessonMax={selectLessonMax}
+          selectHeader={selectHeader}
         />
       </Route>
       <Route path="/lesson">
-        <Lessons lessonNum={lessonNum} lessonMax={lessonMax} />
+        <Lessons lessonNum={lessonNum} lessonMax={lessonMax} header={header} />
       </Route>
       <Route path="/test">
         <Test />

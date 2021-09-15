@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SideBar from "../SideBar/SideBar";
 import NavBar from "../NavBar";
 import Link from "../Link";
 import Footer from "../Footer";
 import UIOptions from "../Options/UIOptions";
+import RC1 from "../Tables/RC1";
 
-const Categories = ({ selectLessonNum, selectLessonMax }) => {
+const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
   const topics = [
     "Reading",
     "Listening",
@@ -17,7 +18,7 @@ const Categories = ({ selectLessonNum, selectLessonMax }) => {
     "Grammar",
   ];
 
-  const topicHeads = [
+  const topicHeadsRC = [
     {
       num: 1,
       head: "Reading Styles",
@@ -102,73 +103,119 @@ const Categories = ({ selectLessonNum, selectLessonMax }) => {
     },
   ];
 
-  const lessonClicked = (num, max) => {
-    selectLessonNum(num);
-    selectLessonMax(max);
-    console.log("Hello");
+  const topicHeadsVC = [
+    {
+      num: 1,
+      head: "Structural Analysis",
+      sub: "",
+      desc: "An introduction to structural analysis.",
+      max: 2,
+    },
+    {
+      num: 2,
+      head: "Structural Analysis ",
+      sub: "Prefix, Root, Suffix",
+      desc: "Part-by-part analysis of a word.",
+      max: 3,
+    },
+    {
+      num: 3,
+      head: "Road Signs",
+      sub: "Interpreting Signs and Symbols",
+      desc: "Definition of common road and prohibited signs.",
+      max: 3,
+    },
+
+    {
+      num: 4,
+      head: "Genre Identification",
+      sub: null,
+      desc: "Different genres of viewing materials.",
+      max: 5,
+    },
+    {
+      num: 5,
+      head: "Genre Identification",
+      sub: "",
+      desc: "Different genres of viewing materials.",
+      max: 4,
+    },
+    {
+      num: 6,
+      head: "Organizing Information",
+      sub: null,
+      desc: "An introduction to organizing information and mind mapping.",
+      max: 2,
+    },
+
+    {
+      num: 7,
+      head: "Organizing Information",
+      sub: "Mind Mapping",
+      desc: "Definition of mind mapping.",
+      max: 2,
+    },
+    {
+      num: 8,
+      head: "Truthfulness and Accuracy",
+      sub: "Printed Material",
+      desc: "Methods for determining the accuracy and truthfulness of a printed material.",
+      max: 3,
+    },
+    {
+      num: 9,
+      head: "Truthfulness and Accuracy",
+      sub: "Website",
+      desc: "Methods for determining the accuracy and truthfulness of a website.",
+      max: 2,
+    },
+  ];
+
+  const [activeTopic, selectActiveTopic] = useState([]);
+
+  useEffect(() => {
+    selectActiveTopic(topicHeadsRC);
+    selectHeader("RC");
+  }, []);
+
+  const onTopicClicked = (index) => {
+    switch (index) {
+      case 0:
+        selectActiveTopic(topicHeadsRC);
+        selectHeader("RC");
+        break;
+      case 2:
+        selectActiveTopic(topicHeadsVC);
+        selectHeader("VC");
+        break;
+      default:
+        console.log("In progress");
+        break;
+    }
+    console.log(index);
   };
 
-  const renderedItems = topics.map((topic) => {
+  const renderedItems = topics.map((topic, index) => {
     return (
       <li class="nav-item">
-        <Link
-          class="nav-link mb-0 px-0 py-1"
-          data-bs-toggle="pill"
-          href={`#${topic}`}
-          role="button"
-          aria-expanded="false"
-          aria-controls="listening"
+        <button
+          className="btn"
+          onClick={() => {
+            onTopicClicked(index);
+          }}
         >
-          {topic}
-        </Link>
+          <Link
+            class="nav-link mb-0 px-0 py-1"
+            data-bs-toggle="pill"
+            href={`#${topic}`}
+            role="button"
+            aria-expanded="false"
+            aria-controls="listening"
+          >
+            {topic}
+          </Link>
+        </button>
       </li>
-    );
-  });
-
-  const renderedTopics = topicHeads.map((item) => {
-    const path = item.desc === "" ? "./drill" : "./lesson";
-    return (
-      <tr>
-        <td>
-          <div class="d-flex px-2 py-1">
-            <p class="text-xs font-weight-bold mb-0">
-              &nbsp;&nbsp;&nbsp;{item.num}
-            </p>
-          </div>
-        </td>
-        <td>
-          <p class="text-xs font-weight-bold mb-0">{item.head}</p>
-          <p class="text-xs text-secondary mb-0">{item.sub}</p>
-        </td>
-        <td>
-          <div class="align-middle text-center">
-            <p class="text-xs text-secondary mb-0">{item.desc}</p>
-          </div>
-        </td>
-        <td class="align-middle">
-          <button
-            onClick={(e) => {
-              lessonClicked(item.num, item.max);
-            }}
-            class="btn btn-link text-secondary mb-0"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <Link href={path}>
-              <i class="fa fa-eye text-xs" aria-hidden="true"></i>
-            </Link>
-          </button>
-        </td>
-        <td class="align-middle">
-          <button
-            class="btn btn-link text-secondary mb-0"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fa fa-share text-xs" aria-hidden="true"></i>
-          </button>
-        </td>
-      </tr>
     );
   });
 
@@ -203,7 +250,14 @@ const Categories = ({ selectLessonNum, selectLessonMax }) => {
                         <th class="text-secondary opacity-7"></th>
                       </tr>
                     </thead>
-                    <tbody>{renderedTopics}</tbody>
+                    {console.log(activeTopic)}
+                    <tbody>
+                      <RC1
+                        topicHeads={activeTopic}
+                        selectLessonNum={selectLessonNum}
+                        selectLessonMax={selectLessonMax}
+                      />
+                    </tbody>
                   </table>
                 </div>
               </div>

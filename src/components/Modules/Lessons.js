@@ -5,7 +5,7 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import UIOptions from "../Options/UIOptions";
 
-const Lessons = ({ lessonNum, lessonMax }) => {
+const Lessons = ({ lessonNum, lessonMax, header }) => {
   const [index, setIndex] = useState(0);
   const [slideNum, selectSlideNum] = useState([]);
   const slides = [];
@@ -30,7 +30,7 @@ const Lessons = ({ lessonNum, lessonMax }) => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={`/img/1stQuarter/RC/Lesson${lessonNum}/Slide${slide}.png`}
+          src={`/img/1stQuarter/${header}/Lesson${lessonNum}/Slide${slide}.png`}
           alt="First slide"
         />
       </Carousel.Item>
@@ -56,6 +56,7 @@ const Lessons = ({ lessonNum, lessonMax }) => {
             {renderedSlides}
           </Carousel>
           slides: {slideNum}
+          header: {header}
           <Footer />
         </div>
       </main>
