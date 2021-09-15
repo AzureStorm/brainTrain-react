@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import Link from "../Link";
 
-const OverViewCard = ({ text }) => {
+const OverViewCard = ({ text, selectedRoute }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const selectedPath = (texts) => {
+    if (selectedRoute === "./categories") {
+      return (
+        <Button variant="warning" onClick={handleShow}>
+          <Link
+            class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+            href={selectedRoute}
+          >
+            {texts.routeHeader}
+            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+          </Link>
+        </Button>
+      );
+    } else {
+      return (
+        <Button variant="warning" onClick={handleShow}>
+          {texts.routeHeader}
+          <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+        </Button>
+      );
+    }
+  };
+
   const renderedCard = text.map((texts) => {
     return (
       <div class="col-lg-6 mt-4">
@@ -16,22 +46,45 @@ const OverViewCard = ({ text }) => {
                 {texts.head}
               </h5>
               <p class="text-white">{texts.details}</p>
-              <Link
-                class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                href="./categories"
-              >
-                {texts.routeHeader}
-                <i
-                  class="fas fa-arrow-right text-sm ms-1"
-                  aria-hidden="true"
-                ></i>
-              </Link>
+              {selectedPath(texts)}
             </div>
           </div>
         </div>
+        <>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Select Difficulty</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Choose Easy, Medium, or Hard!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="success" onClick={handleClose}>
+                <Link
+                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  href={selectedRoute}
+                >
+                  Easy
+                  <i
+                    class="fas fa-arrow-right text-sm ms-1"
+                    aria-hidden="true"
+                  ></i>
+                </Link>
+              </Button>
+              <Button variant="warning" onClick={handleClose}>
+                Medium
+              </Button>
+              <Button variant="danger" onClick={handleClose}>
+                Hard
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
       </div>
     );
   });
+
+  /**
+   *
+   */
 
   return renderedCard;
 };

@@ -4,7 +4,9 @@ import Dashboard from "./Dashboard";
 import About from "./About";
 import Route from "./Route";
 import SignIn from "./SignIn";
-import Categories from "./Categories";
+import Categories from "./Modules/Categories";
+import Lessons from "./Modules/Lessons";
+import Test from "./Test";
 
 const App = () => {
   return (
@@ -30,6 +32,12 @@ const App = () => {
       </Route>
       <Route path="/categories">
         <Categories />
+      </Route>
+      <Route path="/lesson">
+        <Lessons />
+      </Route>
+      <Route path="/test">
+        <Test />
       </Route>
     </body>
   );

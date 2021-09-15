@@ -70,6 +70,9 @@ const ModulesView = () => {
   const selectedView =
     window.location.pathname === "/modules" ? readModules : readAssessments;
 
+  const selectedRoute =
+    window.location.pathname === "/modules" ? "./categories" : "./test";
+
   return (
     <body class="g-sidenav-show  bg-gray-100">
       <SideBar />
@@ -77,7 +80,7 @@ const ModulesView = () => {
         <NavBar />
         <div class="container-fluid py-4">
           <div className="row">
-            <OverViewCard text={selectedView} />
+            <OverViewCard text={selectedView} selectedRoute={selectedRoute} />
             <Footer />
           </div>
         </div>
