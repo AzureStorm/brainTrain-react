@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import SideBar from "./SideBar/SideBar";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -9,121 +10,19 @@ const Test = () => {
   const totalNum = 10;
   const numberOfQuestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [num, selectNum] = useState(0);
+  const [testQuestions, selectTestQuestions] = useState([]);
   const [pageNum, selectPageNum] = useState(numberOfQuestions[num]);
   const [ranNums, selectRanNums] = useState([1, 2, 3]);
   const [activeRadio, selectActiveRadio] = useState(null);
-  const [answer, selectAnswer] = useState("");
   const [score, selectScore] = useState(0);
-  const testQuestions = [
-    {
-      q: "You have a specific piece of information in mind that can be quickly l...",
-      a: "Intensive Reading",
-      b: "Scanning",
-      c: "Skimming",
-      ans: "b",
-      num: 1,
-      img: false,
-    },
-    {
-      q: "A type of “fast reading” technique where the goal is to understand the...",
-      a: "Intensive Reading",
-      b: "Scanning",
-      c: "Skimming",
-      ans: "c",
-      num: 2,
-      img: false,
-    },
-    {
-      q: "The following are examples of prosodic features EXCEPT:",
-      a: "intonation",
-      b: "stress",
-      c: "pressure",
-      d: "volume",
-      ans: "d",
-      num: 3,
-      img: false,
-    },
-    {
-      q: "How many student council members are there?",
-      a: "12",
-      b: "17",
-      c: "19",
-      d: "20",
-      ans: "c",
-      num: 4,
-      img: true,
-    },
-    {
-      q: "How many students chose Mathematics and Science as their favorite subject?",
-      a: "5",
-      b: "3",
-      c: "2",
-      d: "10",
-      ans: "b",
-      num: 5,
-      img: true,
-    },
-    {
-      q: "Who likes English and Mathematics, but not Science?",
-      a: "Flor and Kory",
-      b: "Jack",
-      c: "Dante",
-      d: "Alexander",
-      ans: "d",
-      num: 6,
-      img: true,
-    },
-    {
-      q: "Which of the following statements is TRUE?",
-      a: "Cindy likes Science, English and Mathematics",
-      b: "Saoirse only likes English",
-      c: "Max, Mari and Alexander like Mathematics",
-      d: "Both Jack and Amber like Science",
-      ans: "c",
-      num: 7,
-      img: true,
-    },
-    {
-      q: "Which of the following statements is FALSE?",
-      a: "Shelly, Max and Cindy all like Science, English and Mathematics",
-      b: "Jack and Astrid both like Science",
-      c: "Kendra, Cherry and Flor all like English",
-      d: "David and Mari only like Mathematics",
-      ans: "a",
-      num: 8,
-      img: true,
-    },
-
-    {
-      q: "Which prosodic feature pertains to the level of speed with which a spe...",
-      a: "speech recovery",
-      b: "rest",
-      c: "rate of speech",
-      d: "pitch",
-      ans: "c",
-      num: 9,
-      img: false,
-    },
-    {
-      q: "This prosodic feature refers to a speaker’s temporary halt in speech d...",
-      a: "rest",
-      b: "pause",
-      c: "halt",
-      d: "cease",
-      ans: "b",
-      num: 10,
-      img: false,
-    },
-  ];
 
   const activeQuestion = ranNums[pageNum - 1] - 1;
 
-  const choices = [
-    { option: "a", term: `a. ${testQuestions[activeQuestion].a}` },
-    { option: "b", term: `b. ${testQuestions[activeQuestion].b}` },
-    { option: "c", term: `c. ${testQuestions[activeQuestion].c}` },
-    { option: "d", term: `d. ${testQuestions[activeQuestion].d}` },
-  ];
+  var choices = [];
+  var currentQuestion = "";
+  var ifImage = null;
+  var imageChoice = false;
+  var answer = "";
 
   //Question randomizer
   useEffect(() => {
@@ -147,6 +46,12 @@ const Test = () => {
     var randNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     selectRanNums(randNums);
 
+    //Axios request
+    axios.get(`/api/current_user`).then((res) => {
+      const questions = res.data;
+      selectTestQuestions(questions);
+    });
+
     onButtonClick();
   }, []);
 
@@ -155,6 +60,31 @@ const Test = () => {
     selectActiveRadio(null);
   }, [activeRadio]);
 
+  //Display
+  if (testQuestions.length !== 0) {
+    choices = [
+      { option: "a", term: testQuestions[activeQuestion].a },
+      { option: "b", term: testQuestions[activeQuestion].b },
+      { option: "c", term: testQuestions[activeQuestion].c },
+      { option: "d", term: testQuestions[activeQuestion].d },
+    ];
+    currentQuestion = testQuestions[activeQuestion].q;
+
+    if (testQuestions[activeQuestion].img == true) {
+      ifImage = (
+        <img src={`/img/1stQuarter/${testQuestions[activeQuestion].num}.png`} />
+      );
+    }
+
+    if (testQuestions[activeQuestion].imgChoice == true) {
+      imageChoice = true;
+    } else {
+      imageChoice = false;
+    }
+    console.log(imageChoice);
+    console.log(testQuestions[activeQuestion].imgChoice);
+  }
+
   //Button click
   const onButtonClick = () => {
     if (num < totalNum) {
@@ -162,11 +92,11 @@ const Test = () => {
       selectPageNum(numberOfQuestions[num]);
       selectActiveRadio(false);
 
-      answer === testQuestions[activeQuestion].ans
-        ? selectScore(score + 1)
-        : selectScore(score + 0);
-
-      console.log(activeRadio);
+      if (testQuestions.length != 0) {
+        answer === testQuestions[activeQuestion].ans
+          ? selectScore(score + 1)
+          : selectScore(score + 0);
+      }
     } else {
       selectActiveRadio(false);
 
@@ -193,29 +123,48 @@ const Test = () => {
 
   //When clicking answer choice
   const onRadioChange = (e) => {
-    selectAnswer(e.target.value);
+    answer = e.target.value;
     console.log(answer);
     selectActiveRadio(null);
   };
 
   //Render radio choices
   const renderedChoices = choices.map((choice) => {
-    if (choice.term === `d. undefined`) {
+    if (`${choice.option}. ${choice.term}` === "d. undefined") {
       return;
     }
-    return (
-      <div>
-        <input
-          checked={activeRadio}
-          onChange={(e) => onRadioChange(e)}
-          name="group1"
-          type="radio"
-          value={choice.option}
-        />
 
-        {choice.term}
-      </div>
-    );
+    if (imageChoice == true) {
+      return (
+        <div>
+          <input
+            checked={activeRadio}
+            onChange={(e) => onRadioChange(e)}
+            name="group1"
+            type="radio"
+            value={choice.option}
+          />
+
+          <img
+            src={`/img/1stQuarter/${testQuestions[activeQuestion].num}${choice.term}.png`}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <input
+            checked={activeRadio}
+            onChange={(e) => onRadioChange(e)}
+            name="group1"
+            type="radio"
+            value={choice.option}
+          />
+
+          {` ${choice.option}. ${choice.term}`}
+        </div>
+      );
+    }
   });
 
   //Main return
@@ -233,14 +182,10 @@ const Test = () => {
                     Question <span>{pageNum}</span> of 10
                   </p>
 
-                  <p class="text-start ">{testQuestions[activeQuestion].q}</p>
+                  <p class="text-start ">{currentQuestion}</p>
                 </div>
                 <div className=" p-3 d-flex justify-content-center">
-                  {testQuestions[activeQuestion].img === true ? (
-                    <img src="/img/1stQuarter/4.png" />
-                  ) : (
-                    <></>
-                  )}
+                  {ifImage}
                 </div>
                 <div class="card-body p-3 d-flex justify-content-center">
                   <div class="row d-flex justify-content-left">

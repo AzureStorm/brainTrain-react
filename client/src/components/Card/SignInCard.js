@@ -9,9 +9,11 @@ const SignInCard = () => {
       </div>
       <div class="card-body">
         <div class="text-center">
-          <button type="button" class="btn w-100 mt-4 mb-0">
-            <i class="fa fa-google-plus"> </i> Sign in with Google
-          </button>
+          <form action="/auth/google">
+            <button type="submit" class="btn w-100 mt-4 mb-0">
+              <i class="fa fa-google-plus"> </i> Sign in with Google
+            </button>
+          </form>
         </div>
         <div class="mt-2 position-relative text-center">
           <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
