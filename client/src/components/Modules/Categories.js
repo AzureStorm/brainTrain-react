@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SideBar from "../SideBar/SideBar";
-import NavBar from "../NavBar";
 import Link from "../Link";
-import Footer from "../Footer";
-import UIOptions from "../Options/UIOptions";
 import RC1 from "../Tables/RC1";
 
 const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
@@ -220,57 +216,49 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
   });
 
   return (
-    <body class="g-sidenav-show  bg-gray-100">
-      <SideBar />
-      <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-        <NavBar />
-        <div class="container-fluid py-4">
-          <div class="container-fluid py-4">
-            <ul class="nav nav-pills nav-fill p-1" role="tablist">
-              {renderedItems}
-            </ul>
-          </div>
-          <div class="container-fluid py-4 tab-content">
-            <div id="reading" class="tab-pane fade in show active">
-              <div class="card">
-                <div class="table-responsive">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                          No.
-                        </th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                          Topic
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                          Description
-                        </th>
-                        <th class="text-secondary opacity-7"></th>
-                        <th class="text-secondary opacity-7"></th>
-                      </tr>
-                    </thead>
-                    {console.log(activeTopic)}
-                    <tbody>
-                      <RC1
-                        topicHeads={activeTopic}
-                        selectLessonNum={selectLessonNum}
-                        selectLessonMax={selectLessonMax}
-                      />
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+    <div class="container-fluid py-4">
+      <div class="container-fluid py-4">
+        <ul class="nav nav-pills nav-fill p-1" role="tablist">
+          {renderedItems}
+        </ul>
+      </div>
+      <div class="container-fluid py-4 tab-content">
+        <div id="reading" class="tab-pane fade in show active">
+          <div class="card">
+            <div class="table-responsive">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                      No.
+                    </th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                      Topic
+                    </th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                      Description
+                    </th>
+                    <th class="text-secondary opacity-7"></th>
+                    <th class="text-secondary opacity-7"></th>
+                  </tr>
+                </thead>
+                {console.log(activeTopic)}
+                <tbody>
+                  <RC1
+                    topicHeads={activeTopic}
+                    selectLessonNum={selectLessonNum}
+                    selectLessonMax={selectLessonMax}
+                  />
+                </tbody>
+              </table>
             </div>
           </div>
-          <Footer />
         </div>
-      </main>
-      <UIOptions />
+      </div>
 
       <script async defer src="https://buttons.github.io/buttons.js"></script>
       <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    </body>
+    </div>
   );
 };
 

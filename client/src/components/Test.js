@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SideBar from "./SideBar/SideBar";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import UIOptions from "./Options/UIOptions";
 import Form from "react-bootstrap/Form";
 
 const Test = () => {
@@ -171,54 +167,44 @@ const Test = () => {
 
   //Main return
   return (
-    <body class="g-sidenav-show  bg-gray-100">
-      <SideBar />
-      <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-        <NavBar />
-        <div class="container-fluid py-4">
-          <div class="row">
-            <div class="col-12 mt-4">
-              <div class="card mb-4">
-                <div class="card-header pb-0 p-3">
-                  <p class="text-center">
-                    Question <span>{pageNum}</span> of 10
-                  </p>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 mt-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0 p-3">
+              <p class="text-center">
+                Question <span>{pageNum}</span> of 10
+              </p>
 
-                  <p class="text-start ">{currentQuestion}</p>
+              <p class="text-start ">{currentQuestion}</p>
+            </div>
+            <div className=" p-3 d-flex justify-content-center">{ifImage}</div>
+            <div class="card-body p-3 d-flex justify-content-center">
+              <div class="row d-flex justify-content-left">
+                <div>
+                  <Form>{renderedChoices}</Form>
                 </div>
-                <div className=" p-3 d-flex justify-content-center">
-                  {ifImage}
-                </div>
-                <div class="card-body p-3 d-flex justify-content-center">
-                  <div class="row d-flex justify-content-left">
-                    <div>
-                      <Form>{renderedChoices}</Form>
-                    </div>
-                    <ul class="pagination-success pagination-sm justify-content-center">
-                      {renderedItems}
-                      <li class="list-inline-item">
-                        <button
-                          onClick={(e) => onButtonClick()}
-                          class="btn btn-outline-success btn-rounded btn-sm"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal-default"
-                        >
-                          {num < totalNum ? "Next" : "Submit"}
-                        </button>
-                      </li>
-                    </ul>
-                    Score: {activeQuestion}
-                  </div>
-                </div>
-                {/**Pop-up here */}
+                <ul class="pagination-success pagination-sm justify-content-center">
+                  {renderedItems}
+                  <li class="list-inline-item">
+                    <button
+                      onClick={(e) => onButtonClick()}
+                      class="btn btn-outline-success btn-rounded btn-sm"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal-default"
+                    >
+                      {num < totalNum ? "Next" : "Submit"}
+                    </button>
+                  </li>
+                </ul>
+                Score: {score}
               </div>
             </div>
+            {/**Pop-up here */}
           </div>
-          <Footer />
         </div>
-      </main>
-      <UIOptions />
-    </body>
+      </div>
+    </div>
   );
 };
 

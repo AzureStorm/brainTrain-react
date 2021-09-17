@@ -1,8 +1,4 @@
 import React from "react";
-import SideBar from "./SideBar/SideBar";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import UIOptions from "./Options/UIOptions";
 import OverViewCard from "./Card/OverViewCard";
 
 const ModulesView = () => {
@@ -74,19 +70,11 @@ const ModulesView = () => {
     window.location.pathname === "/modules" ? "./categories" : "./test";
 
   return (
-    <body class="g-sidenav-show  bg-gray-100">
-      <SideBar />
-      <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-        <NavBar />
-        <div class="container-fluid py-4">
-          <div className="row">
-            <OverViewCard text={selectedView} selectedRoute={selectedRoute} />
-            <Footer />
-          </div>
-        </div>
-      </main>
-      <UIOptions />
-    </body>
+    <div class="container-fluid py-4">
+      <div className="row">
+        <OverViewCard text={selectedView} selectedRoute={selectedRoute} />
+      </div>
+    </div>
   );
 };
 

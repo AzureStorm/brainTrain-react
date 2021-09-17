@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
-import SideBar from "../SideBar/SideBar";
-import NavBar from "../NavBar";
-import Footer from "../Footer";
-import UIOptions from "../Options/UIOptions";
 
 const Lessons = ({ lessonNum, lessonMax, header }) => {
   const [index, setIndex] = useState(0);
@@ -41,27 +37,19 @@ const Lessons = ({ lessonNum, lessonMax, header }) => {
     setIndex(selectedIndex);
   };
   return (
-    <body class="g-sidenav-show  bg-gray-100">
-      <SideBar />
-      <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-        <NavBar />
-        <div class="container-fluid py-4">
-          <Carousel
-            variant="dark"
-            activeIndex={index}
-            onSelect={handleSelect}
-            interval={null}
-            wrap={false}
-          >
-            {renderedSlides}
-          </Carousel>
-          slides: {slideNum}
-          header: {header}
-          <Footer />
-        </div>
-      </main>
-      <UIOptions />
-    </body>
+    <div class="container-fluid py-4">
+      <Carousel
+        variant="dark"
+        activeIndex={index}
+        onSelect={handleSelect}
+        interval={null}
+        wrap={false}
+      >
+        {renderedSlides}
+      </Carousel>
+      slides: {slideNum}
+      header: {header}
+    </div>
   );
 };
 
