@@ -43,11 +43,11 @@ const Test = () => {
       return array;
     };
 
-    var randNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    var randNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     selectRanNums(randNums);
 
     //Axios request
-    axios.get(`/api/current_user`).then((res) => {
+    axios.get(`/api/find_questions`).then((res) => {
       const questions = res.data;
       selectTestQuestions(questions);
     });
@@ -109,7 +109,9 @@ const Test = () => {
   //Render pageions
   const renderedItems = numberOfQuestions.map((num, index) => {
     const active = index === pageNum - 1 ? "active" : "disabled";
-
+    if (index > totalNum - 1) {
+      return;
+    }
     return (
       <>
         <li class="list-inline-item">
@@ -205,7 +207,7 @@ const Test = () => {
                         </button>
                       </li>
                     </ul>
-                    Score: {score}
+                    Score: {activeQuestion}
                   </div>
                 </div>
                 {/**Pop-up here */}

@@ -24,11 +24,13 @@ module.exports = (app) => {
   });
 
   app.get("/api/current_user", async (req, res) => {
-    quest.find({}).exec((err, leads) => {
-      res.send(leads);
-      console.log(leads);
+    res.send(req.user);
+  });
+
+  app.get("/api/find_questions", async (req, res) => {
+    quest.find({}).exec((err, questions) => {
+      res.send(questions);
     });
-    await console.log("Hello");
   });
 };
 
