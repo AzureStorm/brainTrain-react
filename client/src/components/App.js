@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SideBar from "./SideBar/SideBar";
 import NavBar from "./NavBar";
-import Card from "./Card/Card";
 import Footer from "./Footer";
 import UIOptions from "./Options/UIOptions";
 import OverView from "./OverView";
@@ -17,6 +16,7 @@ const App = () => {
   const [lessonNum, selectLessonNum] = useState(0);
   const [lessonMax, selectLessonMax] = useState(0);
   const [header, selectHeader] = useState("");
+  const [difficulty, selectDifficulty] = useState(10);
 
   return (
     <body class="g-sidenav-show  bg-gray-100">
@@ -30,7 +30,7 @@ const App = () => {
           <OverView />
         </Route>
         <Route path="/assessments">
-          <OverView />
+          <OverView selectDifficulty={selectDifficulty} />
         </Route>
         <Route path="/about">
           <About />
@@ -55,8 +55,9 @@ const App = () => {
             header={header}
           />
         </Route>
+
         <Route path="/test">
-          <Test />
+          <Test difficulty={difficulty} />
         </Route>
 
         <Footer />

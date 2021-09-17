@@ -1,7 +1,7 @@
 import React from "react";
 import OverViewCard from "./Card/OverViewCard";
 
-const ModulesView = () => {
+const OverView = ({ selectDifficulty }) => {
   const readModules = [
     {
       head: "1st Quarter Modules",
@@ -72,10 +72,14 @@ const ModulesView = () => {
   return (
     <div class="container-fluid py-4">
       <div className="row">
-        <OverViewCard text={selectedView} selectedRoute={selectedRoute} />
+        <OverViewCard
+          text={selectedView}
+          selectedRoute={selectedRoute}
+          selectDifficulty={selectDifficulty}
+        />
       </div>
     </div>
   );
 };
 
-export default ModulesView;
+export default OverView;

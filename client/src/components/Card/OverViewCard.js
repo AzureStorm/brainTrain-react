@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Link from "../Link";
 
-const OverViewCard = ({ text, selectedRoute }) => {
+const OverViewCard = ({ text, selectedRoute, selectDifficulty }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -57,7 +57,13 @@ const OverViewCard = ({ text, selectedRoute }) => {
             </Modal.Header>
             <Modal.Body>Choose Easy, Medium, or Hard!</Modal.Body>
             <Modal.Footer>
-              <Button variant="success" onClick={handleClose}>
+              <Button
+                variant="success"
+                onClick={(e) => {
+                  selectDifficulty(10);
+                  handleClose();
+                }}
+              >
                 <Link
                   class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                   href={selectedRoute}
@@ -69,11 +75,41 @@ const OverViewCard = ({ text, selectedRoute }) => {
                   ></i>
                 </Link>
               </Button>
-              <Button variant="warning" onClick={handleClose}>
-                Medium
+              <Button
+                onClick={(e) => {
+                  selectDifficulty(20);
+                  handleClose();
+                }}
+                variant="warning"
+              >
+                <Link
+                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  href={selectedRoute}
+                >
+                  Medium
+                  <i
+                    class="fas fa-arrow-right text-sm ms-1"
+                    aria-hidden="true"
+                  ></i>
+                </Link>
               </Button>
-              <Button variant="danger" onClick={handleClose}>
-                Hard
+              <Button
+                onClick={(e) => {
+                  selectDifficulty(40);
+                  handleClose();
+                }}
+                variant="danger"
+              >
+                <Link
+                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  href={selectedRoute}
+                >
+                  Hard
+                  <i
+                    class="fas fa-arrow-right text-sm ms-1"
+                    aria-hidden="true"
+                  ></i>
+                </Link>
               </Button>
             </Modal.Footer>
           </Modal>
