@@ -1,6 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Link from "../Link";
 
 const SignUpCard = () => {
+  const [firstName, selectFirstName] = useState("");
+  const [lastName, selectLastName] = useState("");
+  const [email, selectEmail] = useState("");
+  const [password, selectPassword] = useState("");
+  const [confirmPassword, selectConfirmPassword] = useState("");
+  const [show, setShow] = useState(false);
+  const [statement, selectStatement] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const onRegisterSubmit = () => {
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      password === "" ||
+      confirmPassword === ""
+    ) {
+      selectStatement("Empty field");
+    } else if (password != confirmPassword) {
+      selectStatement("Password do not match!");
+    } else {
+      const data = [
+        {
+          email: email,
+          acctName: `${firstName} ${lastName}`,
+          password: password,
+        },
+      ];
+      selectStatement("Thank you for signing up!");
+      axios.post(`/api/register`, { data }).then((res) => {});
+    }
+    handleShow();
+  };
+
   return (
     <div class="card card-plain mt-8">
       <div class="card-header pb-0 text-left bg-transparent">
@@ -8,9 +48,12 @@ const SignUpCard = () => {
         <p class="mb-0">Create a Brain Train account</p>
       </div>
       <div class="card-body">
-        <form role="form text-left">
+        <form role="form text-left" onSubmit={onRegisterSubmit}>
           <div class="mb-3">
             <input
+              onChange={(event) => {
+                selectFirstName(event.target.value);
+              }}
               type="text"
               class="form-control"
               placeholder="First name"
@@ -20,6 +63,9 @@ const SignUpCard = () => {
           </div>
           <div class="mb-3">
             <input
+              onChange={(event) => {
+                selectLastName(event.target.value);
+              }}
               type="text"
               class="form-control"
               placeholder="Last name"
@@ -29,6 +75,9 @@ const SignUpCard = () => {
           </div>
           <div class="mb-3">
             <input
+              onChange={(event) => {
+                selectEmail(event.target.value);
+              }}
               type="email"
               class="form-control"
               placeholder="Email"
@@ -38,6 +87,9 @@ const SignUpCard = () => {
           </div>
           <div class="mb-3">
             <input
+              onChange={(event) => {
+                selectPassword(event.target.value);
+              }}
               type="password"
               class="form-control"
               placeholder="Password"
@@ -47,6 +99,9 @@ const SignUpCard = () => {
           </div>
           <div class="mb-3">
             <input
+              onChange={(event) => {
+                selectConfirmPassword(event.target.value);
+              }}
               type="password"
               class="form-control"
               placeholder="Confirm password"
@@ -70,7 +125,12 @@ const SignUpCard = () => {
             </label>
           </div>
           <div class="text-center">
-            <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">
+            <button
+              type="submit"
+              onClick={onRegisterSubmit}
+              type="button"
+              class="btn bg-gradient-dark w-100 my-4 mb-2"
+            >
               Sign up
             </button>
           </div>
@@ -85,13 +145,27 @@ const SignUpCard = () => {
             </button>
           </div>
           <p class="text-sm mt-3 mb-0">
-            Already have an account?{" "}
+            Already have an account?
             <a href="javascript:;" class="text-dark font-weight-bolder">
               Sign in
             </a>
           </p>
         </form>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>{statement}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            {statement === "Thank you for signing up!" ? (
+              <Link href="/">Go back to homepage</Link>
+            ) : (
+              <>Close</>
+            )}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
