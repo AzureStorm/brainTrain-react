@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const passport = require("passport");
-
 const quest = mongoose.model("readingComprehesions");
+const localy = mongoose.model("users");
 
 module.exports = (app) => {
   app.get(
@@ -31,6 +31,16 @@ module.exports = (app) => {
     quest.find({}).exec((err, questions) => {
       res.send(questions);
     });
+  });
+
+  app.post("/api/register", (req, res) => {
+    const local = new localy({
+      email: req.body.data[0].email,
+      acctName: `${req.body.data[0].acctName}`,
+      password: req.body.data[0].password,
+    });
+    local.save();
+    res.send("Thank you for registering!");
   });
 };
 
