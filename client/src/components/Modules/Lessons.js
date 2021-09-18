@@ -31,7 +31,7 @@ const Lessons = ({ lessonNum, lessonMax, header }) => {
         />
         <img
           className="d-block w-100"
-          src={`img/slide${slide}.png`}
+          src={`img/s${slide}.PNG`}
           alt="First slide"
         />
       </Carousel.Item>
