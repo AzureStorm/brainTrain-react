@@ -42,15 +42,15 @@ module.exports = (app) => {
     local.save();
     res.send("Thank you for registering!");
   });
-};
 
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  function (req, res) {
-    res.redirect("/");
-  }
-);
+  app.post(
+    "/login",
+    passport.authenticate("local", { failureRedirect: "/login" }),
+    function (req, res) {
+      res.redirect("/");
+    }
+  );
+};
 
 {
   /** 
