@@ -76,7 +76,9 @@ const Test = ({ difficulty, quarter }) => {
     currentQuestion = testQuestions[activeQuestion].q;
 
     if (testQuestions[activeQuestion].img == true) {
-      ifImage = <img src={`img/q1/${testQuestions[activeQuestion].num}.png`} />;
+      ifImage = (
+        <img src={`img/q${quarter}/${testQuestions[activeQuestion].num}.png`} />
+      );
     }
 
     if (testQuestions[activeQuestion].imgChoice == true) {
@@ -150,7 +152,7 @@ const Test = ({ difficulty, quarter }) => {
           />
 
           <img
-            src={`img/q1/${testQuestions[activeQuestion].num}${choice.term}.png`}
+            src={`img/q${quarter}/${testQuestions[activeQuestion].num}${choice.term}.png`}
           />
         </div>
       );

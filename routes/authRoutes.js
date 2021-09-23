@@ -3,6 +3,7 @@ const passport = require("passport");
 const quest = mongoose.model("readingComprehesions");
 const localy = mongoose.model("users");
 const quest2 = mongoose.model("secondSets");
+const quest3 = mongoose.model("thirdSets");
 
 module.exports = (app) => {
   app.get(
@@ -37,6 +38,12 @@ module.exports = (app) => {
   app.get("/api/find_questions2", async (req, res) => {
     quest2.find({}).exec((err, questions2) => {
       res.send(questions2);
+    });
+  });
+
+  app.get("/api/find_questions3", async (req, res) => {
+    quest3.find({}).exec((err, questions3) => {
+      res.send(questions3);
     });
   });
 
