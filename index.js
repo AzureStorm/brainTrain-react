@@ -8,6 +8,7 @@ require("./models/User");
 require("./models/Questions");
 require("./models/Questions2");
 require("./models/Questions3");
+require("./models/Questions4");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);

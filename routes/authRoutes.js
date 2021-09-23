@@ -5,6 +5,7 @@ const quest = mongoose.model("readingComprehesions");
 const localy = mongoose.model("users");
 const quest2 = mongoose.model("secondSets");
 const quest3 = mongoose.model("thirdSets");
+const quest4 = mongoose.model("fourthSets");
 
 module.exports = (app) => {
   app.get(
@@ -48,6 +49,12 @@ module.exports = (app) => {
   app.get("/api/find_questions3", async (req, res) => {
     quest3.find({}).exec((err, questions3) => {
       res.send(questions3);
+    });
+  });
+
+  app.get("/api/find_questions4", async (req, res) => {
+    quest4.find({}).exec((err, questions4) => {
+      res.send(questions4);
     });
   });
 
