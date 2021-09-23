@@ -26,12 +26,7 @@ const Lessons = ({ lessonNum, lessonMax, header }) => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={`img/q1/${header}/Lesson${lessonNum}/slide${slide}.png`}
-          alt="First slide"
-        />
-        <img
-          className="d-block w-100"
-          src={`img/s${slide}.PNG`}
+          src={`img/q1/${header}/Lesson${lessonNum}/slide${slide}.PNG`}
           alt="First slide"
         />
       </Carousel.Item>
