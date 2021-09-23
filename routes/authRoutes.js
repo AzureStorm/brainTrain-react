@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const quest = mongoose.model("readingComprehesions");
 const localy = mongoose.model("users");
+const quest2 = mongoose.model("secondSets");
 
 module.exports = (app) => {
   app.get(
@@ -27,9 +28,15 @@ module.exports = (app) => {
     res.send(req.user);
   });
 
-  app.get("/api/find_questions", async (req, res) => {
+  app.get("/api/find_questions1", async (req, res) => {
     quest.find({}).exec((err, questions) => {
       res.send(questions);
+    });
+  });
+
+  app.get("/api/find_questions2", async (req, res) => {
+    quest2.find({}).exec((err, questions2) => {
+      res.send(questions2);
     });
   });
 

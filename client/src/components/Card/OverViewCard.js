@@ -3,28 +3,41 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Link from "../Link";
 
-const OverViewCard = ({ text, selectedRoute, selectDifficulty }) => {
+const OverViewCard = ({
+  text,
+  selectedRoute,
+  selectDifficulty,
+  selectQuarter,
+}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const selectedPath = (texts) => {
+  const selectedPath = (texts, index) => {
+    const quarterNumber = index + 1;
+
     if (selectedRoute === "./categories") {
       return (
-        <Button variant="warning" onClick={handleShow}>
-          <Link
-            class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-            href={selectedRoute}
-          >
+        <Link
+          class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+          href={selectedRoute}
+        >
+          <Button variant="warning">
             {texts.routeHeader}
             <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-          </Link>
-        </Button>
+          </Button>{" "}
+        </Link>
       );
     } else {
       return (
-        <Button variant="warning" onClick={handleShow}>
+        <Button
+          variant="warning"
+          onClick={() => {
+            selectQuarter(quarterNumber);
+            handleShow();
+          }}
+        >
           {texts.routeHeader}
           <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
         </Button>
@@ -32,7 +45,7 @@ const OverViewCard = ({ text, selectedRoute, selectDifficulty }) => {
     }
   };
 
-  const renderedCard = text.map((texts) => {
+  const renderedCard = text.map((texts, index) => {
     return (
       <div class="col-lg-6 mt-4">
         <div class="card h-100 p-3">
@@ -46,7 +59,7 @@ const OverViewCard = ({ text, selectedRoute, selectDifficulty }) => {
                 {texts.head}
               </h5>
               <p class="text-white">{texts.details}</p>
-              {selectedPath(texts)}
+              {selectedPath(texts, index)}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import OverViewCard from "./Card/OverViewCard";
 
-const OverView = ({ selectDifficulty }) => {
+const OverView = ({ selectDifficulty, selectQuarter }) => {
   const readModules = [
     {
       head: "1st Quarter Modules",
@@ -76,6 +76,7 @@ const OverView = ({ selectDifficulty }) => {
           text={selectedView}
           selectedRoute={selectedRoute}
           selectDifficulty={selectDifficulty}
+          selectQuarter={selectQuarter}
         />
       </div>
     </div>

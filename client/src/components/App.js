@@ -17,6 +17,7 @@ const App = () => {
   const [lessonMax, selectLessonMax] = useState(0);
   const [header, selectHeader] = useState("");
   const [difficulty, selectDifficulty] = useState(10);
+  const [quarter, selectQuarter] = useState(1);
 
   return (
     <body class="g-sidenav-show  bg-gray-100">
@@ -30,7 +31,10 @@ const App = () => {
           <OverView />
         </Route>
         <Route path="/assessments">
-          <OverView selectDifficulty={selectDifficulty} />
+          <OverView
+            selectDifficulty={selectDifficulty}
+            selectQuarter={selectQuarter}
+          />
         </Route>
         <Route path="/about">
           <About />
@@ -57,7 +61,7 @@ const App = () => {
         </Route>
 
         <Route path="/test">
-          <Test difficulty={difficulty} />
+          <Test difficulty={difficulty} quarter={quarter} />
         </Route>
 
         <Footer />
