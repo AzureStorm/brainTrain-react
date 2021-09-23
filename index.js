@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
+var flash = require("connect-flash");
 require("./models/User");
 require("./models/Questions");
 require("./models/Questions2");
@@ -13,6 +14,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(flash());
 app.use(express.json());
 app.use(
   cookieSession({
@@ -35,4 +37,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+
+app.listen(PORT, function () {
+  console.log("server started on port", PORT);
+});

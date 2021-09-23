@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import SideBar from "./SideBar/SideBar";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -18,12 +19,23 @@ const App = () => {
   const [header, selectHeader] = useState("");
   const [difficulty, selectDifficulty] = useState(10);
   const [quarter, selectQuarter] = useState(1);
+  const [user, selectUser] = useState("");
+
+  useEffect(async () => {
+    const getCurrentUser = async () => {
+      const getUser = await axios.get(`/api/current_user`);
+      selectUser(getUser.data.acctName);
+      console.log(getUser.data.email);
+    };
+    getCurrentUser();
+    console.log(user);
+  }, []);
 
   return (
     <body class="g-sidenav-show  bg-gray-100">
       <SideBar />
       <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-        <NavBar />
+        <NavBar user={user} />
         <Route path="/">
           <Dashboard />
         </Route>

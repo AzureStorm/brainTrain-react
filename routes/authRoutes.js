@@ -1,3 +1,4 @@
+const { application } = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const quest = mongoose.model("readingComprehesions");
@@ -23,10 +24,13 @@ module.exports = (app) => {
 
   app.get("/api/logout", (req, res) => {
     req.logout();
+    res.send("logout");
   });
 
   app.get("/api/current_user", async (req, res) => {
+    console.log("Hello");
     res.send(req.user);
+    console.log(req.user);
   });
 
   app.get("/api/find_questions1", async (req, res) => {
@@ -48,22 +52,29 @@ module.exports = (app) => {
   });
 
   app.post("/api/register", (req, res) => {
+    console.log(req.body);
     const local = new localy({
       email: req.body.data[0].email,
       acctName: `${req.body.data[0].acctName}`,
       password: req.body.data[0].password,
     });
     local.save();
-    res.send("Thank you for registering!");
+
+    res.send(req.body);
   });
 
-  app.post(
-    "/login",
-    passport.authenticate("local", { failureRedirect: "/login" }),
-    function (req, res) {
-      res.redirect("/");
-    }
-  );
+  app.get("/api/login", (req, res) => {
+    res.sendFile(__dirname + "/login.html");
+  });
+
+  app.post("/api/login", (req, res) => {
+    console.log("req body ");
+    console.log(req.body);
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/api/login",
+    })(req, res);
+  });
 };
 
 {

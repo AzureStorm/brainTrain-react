@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "./Link";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
+  const name = user == null ? "Sign-In" : user;
   return (
     <nav
       class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
@@ -43,7 +44,7 @@ const NavBar = () => {
               >
                 <i class="fa fa-user me-sm-1"></i>
                 <Link href="/sign-in">
-                  <span class="d-sm-inline d-none">Sign In</span>
+                  <span class="d-sm-inline d-none">{name}</span>
                 </Link>
               </a>
             </li>
