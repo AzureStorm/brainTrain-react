@@ -216,7 +216,7 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
   });
 
   return (
-    <div class="container-fluid py-4">
+    <>
       <div class="container-fluid py-4">
         <ul class="nav nav-pills nav-fill p-1" role="tablist">
           {renderedItems}
@@ -258,7 +258,7 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
 
       <script async defer src="https://buttons.github.io/buttons.js"></script>
       <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    </div>
+    </>
   );
 };
 

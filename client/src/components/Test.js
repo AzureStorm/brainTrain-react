@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import Result from "./Result";
+import Link from "./Link";
 
-const Test = ({ difficulty, quarter }) => {
+const Test = ({
+  difficulty,
+  quarter,
+  selectQuestions,
+  selectTestData,
+  selectTotalScore,
+}) => {
   const totalNum = difficulty;
   const numberOfQuestions = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -50,11 +58,13 @@ const Test = ({ difficulty, quarter }) => {
       76, 77, 78, 79, 80,
     ]);
     selectRanNums(randNums);
+    selectQuestions(randNums);
 
     //Axios request
     axios.get(`/api/find_questions${quarter}`).then((res) => {
       const questions = res.data;
       selectTestQuestions(questions);
+      selectTestData(questions);
     });
 
     onButtonClick();
@@ -100,6 +110,7 @@ const Test = ({ difficulty, quarter }) => {
         answer === testQuestions[activeQuestion].ans
           ? selectScore(score + 1)
           : selectScore(score + 0);
+        selectTotalScore(score);
       }
     } else {
       selectActiveRadio(false);
@@ -107,6 +118,8 @@ const Test = ({ difficulty, quarter }) => {
       answer === testQuestions[activeQuestion].ans
         ? selectScore(score + 1)
         : selectScore(score + 0);
+
+      selectTotalScore(score);
     }
   };
 
@@ -173,6 +186,36 @@ const Test = ({ difficulty, quarter }) => {
     }
   });
 
+  const onNext =
+    num < totalNum ? (
+      <>
+        {" "}
+        <li class="list-inline-item">
+          <button
+            onClick={(e) => onButtonClick()}
+            class="btn btn-outline-success btn-rounded btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-default"
+          >
+            next
+          </button>
+        </li>
+      </>
+    ) : (
+      <Link onClick={(e) => onButtonClick()} href="/result">
+        {" "}
+        <li class="list-inline-item">
+          <button
+            class="btn btn-outline-success btn-rounded btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-default"
+          >
+            Submit
+          </button>
+        </li>
+      </Link>
+    );
+
   //Main return
   return (
     <div class="container-fluid py-4">
@@ -194,16 +237,7 @@ const Test = ({ difficulty, quarter }) => {
                 </div>
                 <ul class="pagination-success pagination-sm justify-content-center">
                   {renderedItems}
-                  <li class="list-inline-item">
-                    <button
-                      onClick={(e) => onButtonClick()}
-                      class="btn btn-outline-success btn-rounded btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#modal-default"
-                    >
-                      {num < totalNum ? "Next" : "Submit"}
-                    </button>
-                  </li>
+                  {onNext}
                 </ul>
                 Score: {score}
               </div>

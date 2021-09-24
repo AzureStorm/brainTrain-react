@@ -12,6 +12,7 @@ import SignIn from "./SignIn";
 import Categories from "./Modules/Categories";
 import Lessons from "./Modules/Lessons";
 import Test from "./Test";
+import Result from "./Result";
 
 const App = () => {
   const [lessonNum, selectLessonNum] = useState(0);
@@ -20,6 +21,9 @@ const App = () => {
   const [difficulty, selectDifficulty] = useState(10);
   const [quarter, selectQuarter] = useState(1);
   const [user, selectUser] = useState("");
+  const [questions, selectQuestions] = useState([]);
+  const [testData, selectTestData] = useState([]);
+  const [totalScore, selectTotalScore] = useState(0);
 
   useEffect(async () => {
     const getCurrentUser = async () => {
@@ -73,7 +77,23 @@ const App = () => {
         </Route>
 
         <Route path="/test">
-          <Test difficulty={difficulty} quarter={quarter} />
+          <Test
+            difficulty={difficulty}
+            quarter={quarter}
+            selectQuestions={selectQuestions}
+            selectTestData={selectTestData}
+            selectTotalScore={selectTotalScore}
+          />
+        </Route>
+
+        <Route path="/result">
+          <Result
+            difficulty={difficulty}
+            quarter={quarter}
+            questions={questions}
+            testData={testData}
+            score={totalScore}
+          />
         </Route>
 
         <Footer />
