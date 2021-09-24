@@ -28,7 +28,7 @@ const App = () => {
   useEffect(async () => {
     const getCurrentUser = async () => {
       const getUser = await axios.get(`/api/current_user`);
-      selectUser(getUser.data.acctName);
+      selectUser(getUser.data.username);
       console.log(getUser.data.email);
     };
     getCurrentUser();

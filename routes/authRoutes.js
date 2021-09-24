@@ -58,7 +58,40 @@ module.exports = (app) => {
     });
   });
 
-  app.post("/api/register", (req, res) => {
+  app.post("/api/register", function (req, res) {
+    Users = new localy({ email: req.body.email, username: req.body.username });
+
+    localy.register(Users, req.body.password, function (err, user) {
+      if (err) {
+        res.json({
+          success: false,
+          message: "Your account could not be saved. Error: ",
+          err,
+        });
+      } else {
+        res.json({ success: true, message: "Your account has been saved" });
+      }
+    });
+  });
+
+  app.post(
+    "/api/login",
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+      failureFlash: true,
+    }),
+    function (req, res) {
+      res.redirect("/");
+    }
+  );
+};
+
+{
+  /**
+   * 
+   * 
+   *  app.post("/api/register", (req, res) => {
     console.log(req.body);
     const local = new localy({
       email: req.body.data[0].email,
@@ -70,11 +103,10 @@ module.exports = (app) => {
     res.send(req.body);
   });
 
-  app.get("/api/login", (req, res) => {
-    res.sendFile(__dirname + "/login.html");
-  });
-
-  app.post("/api/login", (req, res) => {
+   * 
+   * 
+   * 
+ app.post("/api/login", (req, res) => {
     console.log("req body ");
     console.log(req.body);
     passport.authenticate("local", {
@@ -82,7 +114,8 @@ module.exports = (app) => {
       failureRedirect: "/api/login",
     })(req, res);
   });
-};
+*/
+}
 
 {
   /** 

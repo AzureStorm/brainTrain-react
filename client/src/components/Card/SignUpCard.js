@@ -28,15 +28,15 @@ const SignUpCard = () => {
     } else if (password != confirmPassword) {
       selectStatement("Password do not match!");
     } else {
-      const data = [
-        {
-          email: email,
-          acctName: `${firstName} ${lastName}`,
-          password: password,
-        },
-      ];
       selectStatement("Thank you for signing up!");
-      axios.post(`/api/register`, { data }).then((res) => {});
+
+      axios
+        .post(`/api/register`, {
+          email: email,
+          username: `${firstName} ${lastName}`,
+          password: password,
+        })
+        .then((res) => {});
     }
     handleShow();
   };
@@ -140,9 +140,11 @@ const SignUpCard = () => {
             </p>
           </div>
           <div class="text-center">
-            <button type="button" class="btn w-100 mt-4 mb-0">
-              <i class="fa fa-google-plus"> </i> Sign up with Google
-            </button>
+            <a href="/auth/google">
+              <button type="button" class="btn w-100 mt-4 mb-0">
+                <i class="fa fa-google-plus"> </i> Sign up with Google
+              </button>
+            </a>
           </div>
           <p class="text-sm mt-3 mb-0">
             Already have an account?

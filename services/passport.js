@@ -35,13 +35,22 @@ passport.use(
 
       const user = await new User({
         googleId: profile.id,
-        acctName: profile.displayName,
+        username: profile.displayName,
       }).save();
       done(null, user);
     }
   )
 );
 
+passport.use(User.createStrategy());
+
+{
+  /** 
+   * 
+   * 
+   * 
+   * 
+   * 
 passport.use(
   new LocalStrategy(function (username, password, done) {
     User.findOne({ username: username }, function (err, user) {
@@ -62,3 +71,5 @@ passport.use(
     });
   })
 );
+*/
+}
