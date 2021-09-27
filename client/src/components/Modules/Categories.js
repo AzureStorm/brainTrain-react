@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ListGroup from "react-bootstrap/ListGroup";
 import Link from "../Link";
 import RC1 from "../Tables/RC1";
 
@@ -193,34 +196,28 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
 
   const renderedItems = topics.map((topic, index) => {
     return (
-      <li class="nav-item">
-        <button
-          className="btn"
-          onClick={() => {
-            onTopicClicked(index);
-          }}
-        >
-          <Link
-            class="nav-link mb-0 px-0 py-1"
-            data-bs-toggle="pill"
-            href={`#${topic}`}
-            role="button"
-            aria-expanded="false"
-            aria-controls="listening"
-          >
-            {topic}
-          </Link>
-        </button>
-      </li>
+      <ListGroup.Item
+        action
+        variant="light"
+        size="lg"
+        className="text-center nav-link mb-0 px-0 py-1"
+        variant="light"
+        href={`#${topic}`}
+        onClick={() => {
+          onTopicClicked(index);
+        }}
+      >
+        {topic}
+      </ListGroup.Item>
     );
   });
 
   return (
     <>
       <div class="container-fluid py-4">
-        <ul class="nav nav-pills nav-fill p-1" role="tablist">
-          {renderedItems}
-        </ul>
+        <ListGroup class="nav nav-pills nav-fill p-1" role="tablist">
+          <ButtonGroup aria-label="Basic example">{renderedItems}</ButtonGroup>
+        </ListGroup>
       </div>
       <div class="container-fluid py-4 tab-content">
         <div id="reading" class="tab-pane fade in show active">

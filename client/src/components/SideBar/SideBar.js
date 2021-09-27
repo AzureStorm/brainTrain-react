@@ -61,7 +61,7 @@ const SideBar = () => {
 
   const accountItems = [
     {
-      hRef: "",
+      hRef: "/profile",
       viewBox: "0 0 46 42",
       title: "support",
       transform1: "translate(-1717.000000, -291.000000)",
