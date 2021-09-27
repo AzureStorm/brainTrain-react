@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "./Link";
 
 const Result = ({ difficulty, questions, testData, score }) => {
   const renderAnswers = questions.map((item, index) => {
@@ -17,7 +18,7 @@ const Result = ({ difficulty, questions, testData, score }) => {
           <div class="card h-100 p-3">
             <div
               class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
-              style={{ backgroundImage: `url('/2qbg.png')` }}
+              style={{ backgroundImage: `url('/img/2qbg.png')` }}
             >
               <span class="mask bg-gradient-dark"></span>
               <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
@@ -44,7 +45,7 @@ const Result = ({ difficulty, questions, testData, score }) => {
           <div class="card h-100 p-3">
             <div
               class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
-              style={{ backgroundImage: `url('/2qbg.png')` }}
+              style={{ backgroundImage: `url('/img/2qbg.png')` }}
             >
               <span class="mask bg-gradient-dark"></span>
               <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
@@ -94,7 +95,7 @@ const Result = ({ difficulty, questions, testData, score }) => {
           <div class="card h-100 p-3">
             <div
               class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
-              style={{ backgroundImage: `url('/2qbg.png')` }}
+              style={{ backgroundImage: `url('/img/2qbg.png')` }}
             >
               <span class="mask bg-gradient-dark"></span>
               <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
@@ -109,6 +110,43 @@ const Result = ({ difficulty, questions, testData, score }) => {
           </div>
         </div>
         {renderAnswers}
+        <div class="col-lg-12 mt-4">
+          <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                {" "}
+                <Link class="text-white" href="/assessments">
+                  <button
+                    id="goToAssessmentBtn float-start"
+                    class="btn bg-gradient-secondary mb-0 px-2"
+                    type="button"
+                  >
+                    <i
+                      class="fas fa-arrow-left text-sm ms-1"
+                      aria-hidden="true"
+                    ></i>
+                    Practice assessments{" "}
+                  </button>
+                </Link>
+              </li>
+              <li class="list-inline-item float-end">
+                <Link href="/test">
+                  <button
+                    id="retakeBtn"
+                    class="btn bg-gradient-primary mb-0 px-2"
+                    type="button"
+                  >
+                    Retake assessment
+                    <i
+                      class="fas fa-arrow-right text-sm ms-1"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </>
   );

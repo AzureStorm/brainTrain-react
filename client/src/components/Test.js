@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+
 import Result from "./Result";
 import Link from "./Link";
+import Button from "@restart/ui/esm/Button";
 
 const Test = ({
   difficulty,
@@ -22,6 +25,11 @@ const Test = ({
   const [ranNums, selectRanNums] = useState([1, 2, 3]);
   const [activeRadio, selectActiveRadio] = useState(null);
   const [score, selectScore] = useState(0);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const activeQuestion = ranNums[pageNum - 1] - 1;
 
@@ -75,6 +83,10 @@ const Test = ({
     selectActiveRadio(null);
   }, [activeRadio]);
 
+  useEffect(() => {
+    selectTotalScore(score);
+  }, [score]);
+
   //Display
   if (testQuestions.length !== 0) {
     choices = [
@@ -101,6 +113,8 @@ const Test = ({
 
   //Button click
   const onButtonClick = () => {
+    console.log("score: " + score);
+
     if (num < totalNum) {
       selectNum(num + 1);
       selectPageNum(numberOfQuestions[num]);
@@ -110,7 +124,6 @@ const Test = ({
         answer === testQuestions[activeQuestion].ans
           ? selectScore(score + 1)
           : selectScore(score + 0);
-        selectTotalScore(score);
       }
     } else {
       selectActiveRadio(false);
@@ -120,6 +133,9 @@ const Test = ({
         : selectScore(score + 0);
 
       selectTotalScore(score);
+      console.log("totyal score: " + score);
+
+      handleShow();
     }
   };
 
@@ -202,18 +218,16 @@ const Test = ({
         </li>
       </>
     ) : (
-      <Link onClick={(e) => onButtonClick()} href="/result">
-        {" "}
-        <li class="list-inline-item">
-          <button
-            class="btn btn-outline-success btn-rounded btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#modal-default"
-          >
-            Submit
-          </button>
-        </li>
-      </Link>
+      <li class="list-inline-item">
+        <button
+          onClick={(e) => onButtonClick()}
+          class="btn btn-outline-success btn-rounded btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-default"
+        >
+          Submit
+        </button>
+      </li>
     );
 
   //Main return
@@ -246,6 +260,18 @@ const Test = ({
           </div>
         </div>
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Check your Answers?</Modal.Body>
+        <Modal.Footer>
+          <Link href="/result">
+            <Button> Yes</Button>
+          </Link>
+          <Button>No</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
