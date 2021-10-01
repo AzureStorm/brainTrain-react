@@ -2,7 +2,9 @@ import React from "react";
 import Link from "./Link";
 
 const NavBar = ({ user }) => {
-  const name = user == null ? "Sign-In" : user;
+  const name = user.username == null ? "Sign-In" : user.username;
+  console.log("hello " + user.username);
+  console.log(user);
   return (
     <nav
       class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"

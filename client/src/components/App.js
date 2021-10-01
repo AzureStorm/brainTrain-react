@@ -24,7 +24,7 @@ const App = () => {
   const [header, selectHeader] = useState("");
   const [difficulty, selectDifficulty] = useState(10);
   const [quarter, selectQuarter] = useState(1);
-  const [user, selectUser] = useState("");
+  const [user, selectUser] = useState([]);
   const [questions, selectQuestions] = useState([]);
   const [testData, selectTestData] = useState([]);
   const [totalScore, selectTotalScore] = useState(0);
@@ -32,8 +32,7 @@ const App = () => {
   useEffect(async () => {
     const getCurrentUser = async () => {
       const getUser = await axios.get(`/api/current_user`);
-      selectUser(getUser.data.username);
-      console.log(getUser.data.email);
+      selectUser(getUser.data);
     };
     getCurrentUser();
     console.log(user);
@@ -102,7 +101,7 @@ const App = () => {
           </Route>
 
           <Route path="/profile">
-            <Profile />
+            <Profile user={user} />
           </Route>
 
           <Footer />

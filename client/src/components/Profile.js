@@ -1,6 +1,6 @@
 import React from "react";
 
-const Profile = () => {
+const Profile = ({ user }) => {
   const progress = [
     { quarter: "1st" },
     { quarter: "2nd" },
@@ -63,8 +63,8 @@ const Profile = () => {
           <div class="row gx-4">
             <div class="col-auto my-auto">
               <div class="h-100">
-                <h5 class="mb-1">account name here</h5>
-                <p class="mb-0 font-weight-bold text-sm">email address here</p>
+                <h5 class="mb-1">{user.username}</h5>
+                <p class="mb-0 font-weight-bold text-sm">{user.email}</p>
               </div>
             </div>
           </div>
