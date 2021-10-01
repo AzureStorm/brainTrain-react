@@ -22,8 +22,12 @@ const Profile = ({ user }) => {
                 <div class="col-xl-6 col-md-6 mb-xl-0 mb-4">
                   <div>
                     <div class="card-body px-1 pb-0">
-                      <p class="mb-4 text-sm">Total number of attempts:</p>
-                      <p class="mb-4 text-sm">Highest score (Easy):</p>
+                      <p class="mb-4 text-sm">
+                        Total number of attempts: {user.firstAttempts}
+                      </p>
+                      <p class="mb-4 text-sm">
+                        Highest score (Easy): {user.firstHighEasy}
+                      </p>
                       <p class="mb-4 text-sm">Highest score (Medium):</p>
                       <p class="mb-4 text-sm">Highest score (Hard):</p>
                       <p class="mb-4 text-sm">Remarks:</p>

@@ -59,7 +59,14 @@ module.exports = (app) => {
   });
 
   app.post("/api/register", function (req, res) {
-    Users = new localy({ email: req.body.email, username: req.body.username });
+    Users = new localy({
+      email: req.body.email,
+      username: req.body.username,
+      firstAttempts: 0,
+      secondAttempts: 0,
+      thirdAttempts: 0,
+      fourthAttempts: 0,
+    });
 
     localy.register(Users, req.body.password, function (err, user) {
       if (err) {
@@ -83,6 +90,204 @@ module.exports = (app) => {
     }),
     function (req, res) {
       res.redirect("/");
+    }
+  );
+
+  app.post(
+    "/api/score",
+    function (req, res) {
+      var totalAttempts = req.body.attempts + 1;
+
+      if (req.body.quarter === 1) {
+        switch (req.body.difficulty) {
+          case 10:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { firstAttempts: totalAttempts, firstHighEasy: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 20:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { firstAttempts: totalAttempts, firstHighMedium: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 40:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { firstAttempts: totalAttempts, firstHighHard: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+        }
+      } else if (req.body.quarter === 2) {
+        switch (req.body.difficulty) {
+          case 10:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { secondAttempts: totalAttempts, secondHighEasy: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 20:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              {
+                secondAttempts: totalAttempts,
+                secondHighMedium: req.body.score,
+              },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 40:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { secondAttempts: totalAttempts, secondHighHard: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+        }
+      } else if (req.body.quarter === 3) {
+        switch (req.body.difficulty) {
+          case 10:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { thirdAttempts: totalAttempts, thirdHighEasy: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 20:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { thirdAttempts: totalAttempts, thirdHighMedium: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 40:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { thirdAttempts: totalAttempts, thirdHighHard: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+        }
+      } else if (req.body.quarter) {
+        switch (req.body.difficulty) {
+          case 10:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { fourthAttempts: totalAttempts, fourthHighEasy: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 20:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              {
+                fourthAttempts: totalAttempts,
+                fourthHighMedium: req.body.score,
+              },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+          case 40:
+            localy.findOneAndUpdate(
+              { email: req.body.email },
+              { thirdAttempts: totalAttempts, fourthHighHard: req.body.score },
+              null,
+              function (err, docs) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Original Doc : ", docs);
+                }
+              }
+            );
+            break;
+        }
+      }
+    },
+    function (req, res) {
+      res.send("It worked!");
     }
   );
 };

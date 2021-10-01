@@ -92,6 +92,7 @@ const App = () => {
 
           <Route path="/result">
             <Result
+              user={user}
               difficulty={difficulty}
               quarter={quarter}
               questions={questions}

@@ -7,6 +7,22 @@ const userSchema = new Schema({
   acctName: String,
   email: String,
   username: { type: String, unique: true, required: true },
+  firstAttempts: Number,
+  firstHighEasy: Number,
+  firstHighMedium: Number,
+  firstHighHard: Number,
+  secondAttempts: Number,
+  secondHighEasy: Number,
+  secondHighMedium: Number,
+  secondHighHard: Number,
+  thirdAttempts: Number,
+  thirdHighEasy: Number,
+  thirdHighMedium: Number,
+  thirdHighHard: Number,
+  fourthAttempts: Number,
+  fourthHighEasy: Number,
+  fourthHighMedium: Number,
+  fourthHighHard: Number,
 });
 
 userSchema.plugin(passportLocalMongoose);

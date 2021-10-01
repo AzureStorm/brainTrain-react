@@ -28,14 +28,22 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
       console.log("hey!");
+      console.log("hey profile: ");
+      console.log(profile.emails[0].value);
 
       if (existingUser) {
         return done(null, existingUser);
       }
-
+      console.log("hey profile: ");
+      console.log(profile);
       const user = await new User({
         googleId: profile.id,
         username: profile.displayName,
+        email: profile.emails[0].value,
+        firstAttempts: 0,
+        secondAttempts: 0,
+        thirdAttempts: 0,
+        fourthAttempts: 0,
       }).save();
       done(null, user);
     }

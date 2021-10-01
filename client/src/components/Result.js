@@ -1,7 +1,40 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import Link from "./Link";
 
-const Result = ({ difficulty, questions, testData, score }) => {
+const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
+  useEffect(() => {
+    var totalAttempts = 0;
+
+    switch (quarter) {
+      case 1:
+        totalAttempts = user.firstAttempts;
+        break;
+
+      case 2:
+        totalAttempts = user.secondAttempts;
+        break;
+      case 3:
+        totalAttempts = user.thirdAttempts;
+        break;
+
+      case 4:
+        totalAttempts = user.fourthAttempts;
+        break;
+    }
+    console.log("attempts");
+    console.log(totalAttempts);
+    axios
+      .post("api/score", {
+        email: user.email,
+        quarter: quarter,
+        score: score,
+        attempts: totalAttempts,
+        difficulty: difficulty,
+      })
+      .then((res) => {});
+  }, []);
+
   const renderAnswers = questions.map((item, index) => {
     var answer =
       testData[item - 1].ans === "a"
