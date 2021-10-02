@@ -26,96 +26,117 @@ const SignInCard = () => {
         });
     }
   };
-
-  return (
-    <div class="card card-plain mt-8">
-      <div class="card-header pb-0 text-left bg-transparent">
-        <h3 class="font-weight-bolder text-info text-gradient">Sign in</h3>
-        <p class="mb-0">Login using your Brain Train account</p>
-      </div>
-      <div class="card-body">
-        <div class="text-center">
-          <form action="/auth/google">
-            <button type="submit" class="btn w-100 mt-4 mb-0">
-              <i class="fa fa-google-plus"> </i> Sign in with Google
-            </button>
-          </form>
-        </div>
-        <div class="mt-2 position-relative text-center">
-          <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
-            or
-          </p>
-        </div>
-        <form role="form">
-          <label>Email</label>
-          <div class="mb-3">
-            <input
+  {
+    /**  <input
               onChange={(event) => {
                 selectEmail(event.target.value);
               }}
               id="username"
               type="email"
               name="username"
-              class="form-control"
+              className="form-control"
               placeholder="Email"
               aria-label="Email"
               aria-describedby="email-addon"
-            />
+            />*/
+  }
+  return (
+    <>
+      <div className="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+        <div className="card-plain mt-4">
+          <br />
+          <br />
+          <br />
+
+          <div className="card-body">
+            <form role="form text-left">
+              <h3 className="text-center text-dark mb-4">Sign In.</h3>
+              <button
+                id="google"
+                type="button"
+                className="btn w-100 mb-0"
+                style={{
+                  color: "#efca2e",
+                  border: "1px solid #efca2e",
+                  backgroundColor: "white",
+                }}
+              >
+                <i className="fa fa-google-plus-square">&nbsp;</i> Sign in with
+                Google
+              </button>
+              <div className="mb-3">
+                <p>
+                  <small>
+                    <center>
+                      <b>OR</b>
+                    </center>
+                  </small>
+                </p>
+              </div>
+              <div className="mb-3">
+                <input
+                  onChange={(event) => {
+                    selectEmail(event.target.value);
+                  }}
+                  id="username"
+                  type="email"
+                  className="form-control"
+                  placeholder="Email"
+                  aria-label="Email"
+                  aria-describedby="email-addon"
+                />
+              </div>
+              <div className="mb-2">
+                <input
+                  onChange={(event) => {
+                    selectPassword(event.target.value);
+                  }}
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  aria-label="Password"
+                  aria-describedby="password-addon"
+                />
+              </div>
+              <div className="">
+                <a
+                  href="forgotpass.html"
+                  className="forgot"
+                  id=""
+                  style={{ fontSize: "13px" }}
+                >
+                  <u>Forgot Password?</u>
+                </a>
+              </div>
+              <button
+                onClick={(e) => {
+                  onLoginSubmit();
+                }}
+                id="sign-in"
+                type="button"
+                className="btn w-100 my-4 mb-2"
+                style={{ backgroundColor: "#efac2e", color: "white" }}
+              >
+                Sign In
+              </button>
+
+              <p className="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
+                Don't have an account?{" "}
+                <a
+                  href="sign-up.html"
+                  className="font-weight-bolder"
+                  id="flexCheckDefault"
+                  target="_blank"
+                  style={{ color: "#efac2e" }}
+                >
+                  Sign up
+                </a>
+              </p>
+            </form>
           </div>
-          <label>Password</label>
-          <div class="mb-3">
-            <input
-              onChange={(event) => {
-                selectPassword(event.target.value);
-              }}
-              type="text"
-              id="password"
-              name="password"
-              class="form-control"
-              placeholder="Password"
-              aria-label="Password"
-              aria-describedby="password-addon"
-            />
-          </div>
-          {/**  <div class="form-check form-switch">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="rememberMe"
-              checked=""
-            />
-            <label class="form-check-label" for="rememberMe">
-              Remember me
-            </label>
-          </div>*/}
-          <div class="text-center">
-            <input
-              onClick={(e) => {
-                onLoginSubmit();
-              }}
-              type="button"
-              class="btn bg-gradient-info w-100 mt-4 mb-0"
-              value="Log-In"
-            />
-          </div>
-        </form>
+        </div>
       </div>
-      <div class="card-footer text-center pt-0 px-lg-2 px-1">
-        <p class="mb-4 text-sm mx-auto">
-          <a
-            href="javascript:;"
-            class="text-info text-gradient font-weight-bold"
-          >
-            Forgot Password?
-          </a>
-        </p>
-        <p class="mb-4 text-sm mx-auto">
-          Don't have an account?
-          <a href="/sign-up" class="text-info text-gradient font-weight-bold">
-            Sign up
-          </a>
-        </p>
-      </div>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>{statement}</Modal.Body>
@@ -129,7 +150,7 @@ const SignInCard = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 };
 

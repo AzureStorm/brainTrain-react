@@ -23,11 +23,21 @@ const SideBarItem = ({
   const active = hRef === "." + window.location.pathname ? "active" : "";
 
   return (
-    <li class="nav-item">
-      <a onClick={onClickButton} class={`nav-link  ${active} `} href={hRef}>
-        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+    <li className="nav-item">
+      <a
+        onClick={
+          hRef === "/api/logout"
+            ? ""
+            : hRef === "./sign-in"
+            ? ""
+            : onClickButton
+        }
+        className={`nav-link  ${active} `}
+        href={hRef}
+      >
+        <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
           <svg
-            class="text-dark"
+            className="text-dark"
             width="16px"
             height="16px"
             viewBox={viewBox1}
@@ -53,21 +63,21 @@ const SideBarItem = ({
                   transform="translate(1716.000000, 291.000000)"
                 >
                   <g id="icon" transform={transform2}>
-                    <path class="color-background" d={d1} id="Path"></path>
+                    <path className="color-background" d={d1} id="Path"></path>
                     <path
-                      class="color-background"
+                      className="color-background"
                       d={d2}
                       id="Path"
                       opacity="0.7"
                     ></path>
                     <path
-                      class="color-background"
+                      className="color-background"
                       d={d3}
                       id="Path"
                       opacity="0.7"
                     ></path>
                     <path
-                      class="color-background"
+                      className="color-background"
                       d={d4}
                       id="Path"
                       opacity="0.7"
@@ -78,7 +88,7 @@ const SideBarItem = ({
             </g>
           </svg>
         </div>
-        <span class="nav-link-text ms-1">{routeLabel}</span>
+        <span className="nav-link-text ms-1">{routeLabel}</span>
       </a>
     </li>
   );

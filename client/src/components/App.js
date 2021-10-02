@@ -38,79 +38,90 @@ const App = () => {
     console.log(user);
   }, []);
 
-  return (
-    <body class="g-sidenav-show  bg-gray-100">
-      <ScrollBar component="body">
-        <SideBar />
-        <main class="main-content position-relative  h-100 mt-1 border-radius-lg ">
-          <NavBar user={user} />
-          <Route path="/">
-            <Dashboard />
-          </Route>
-          <Route path="/modules">
-            <OverView />
-          </Route>
-          <Route path="/assessments">
-            <OverView
-              selectDifficulty={selectDifficulty}
-              selectQuarter={selectQuarter}
-            />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/sign-up">
-            <SignIn />
-          </Route>
-          <Route path="/categories">
-            <Categories
-              selectLessonNum={selectLessonNum}
-              selectLessonMax={selectLessonMax}
-              selectHeader={selectHeader}
-            />
-          </Route>
-          <Route path="/lesson">
-            <Lessons
-              lessonNum={lessonNum}
-              lessonMax={lessonMax}
-              header={header}
-            />
-          </Route>
+  if (
+    window.location.pathname === "/sign-in" ||
+    window.location.pathname === "/sign-up"
+  ) {
+    return (
+      <>
+        <Route path="/sign-in">
+          <SignIn />
+        </Route>
+        <Route path="/sign-up">
+          <SignIn />
+        </Route>
+      </>
+    );
+  } else {
+    return (
+      <body className="g-sidenav-show  bg-gray-100">
+        <ScrollBar component="body">
+          <SideBar user={user} />
+          <main className="main-content position-relative  h-100 mt-1 border-radius-lg ">
+            <NavBar user={user} />
+            <Route path="/">
+              <Dashboard />
+            </Route>
+            <Route path="/modules">
+              <OverView />
+            </Route>
+            <Route path="/assessments">
+              <OverView
+                selectDifficulty={selectDifficulty}
+                selectQuarter={selectQuarter}
+              />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
 
-          <Route path="/test">
-            <Test
-              difficulty={difficulty}
-              quarter={quarter}
-              selectQuestions={selectQuestions}
-              selectTestData={selectTestData}
-              selectTotalScore={selectTotalScore}
-            />
-          </Route>
+            <Route path="/categories">
+              <Categories
+                selectLessonNum={selectLessonNum}
+                selectLessonMax={selectLessonMax}
+                selectHeader={selectHeader}
+              />
+            </Route>
+            <Route path="/lesson">
+              <Lessons
+                lessonNum={lessonNum}
+                lessonMax={lessonMax}
+                header={header}
+              />
+            </Route>
 
-          <Route path="/result">
-            <Result
-              user={user}
-              difficulty={difficulty}
-              quarter={quarter}
-              questions={questions}
-              testData={testData}
-              score={totalScore}
-            />
-          </Route>
+            <Route path="/test">
+              <Test
+                difficulty={difficulty}
+                quarter={quarter}
+                selectQuestions={selectQuestions}
+                selectTestData={selectTestData}
+                selectTotalScore={selectTotalScore}
+              />
+            </Route>
 
-          <Route path="/profile">
-            <Profile user={user} />
-          </Route>
+            <Route path="/result">
+              <Result
+                user={user}
+                difficulty={difficulty}
+                quarter={quarter}
+                questions={questions}
+                testData={testData}
+                score={totalScore}
+              />
+            </Route>
 
-          <Footer />
-        </main>
-        <UIOptions />
-      </ScrollBar>
-    </body>
-  );
+            <Route path="/profile">
+              <Profile user={user} />
+            </Route>
+
+            <Footer />
+          </main>
+          <UIOptions />
+        </ScrollBar>
+      </body>
+    );
+  }
 };
 
 export default App;

@@ -6,7 +6,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 {
   /** */
 }
-const SideBar = () => {
+const SideBar = ({ user }) => {
   const categoryItems = [
     {
       hRef: "./",
@@ -111,10 +111,16 @@ const SideBar = () => {
     );
   });
 
-  const renderedAccountBar = accountItems.map((item) => {
+  const renderedAccountBar = accountItems.map((item, index) => {
+    console.log("sidebar");
+    console.log(user);
+    if (user && index === 1) {
+      return;
+    }
+
     return (
       <SideBarItem
-        hRef={item.hRef}
+        hRef={user && index > 1 ? "/api/logout" : item.hRef}
         viewBox1={item.viewBox}
         title1={item.title}
         transform1={item.transform1}
@@ -122,7 +128,7 @@ const SideBar = () => {
         d1={item.d1}
         d2={item.d2}
         d3={item.d3}
-        routeLabel={item.routeLabel}
+        routeLabel={user && index > 1 ? "Logout" : item.routeLabel}
       />
     );
   });
