@@ -40,7 +40,8 @@ const App = () => {
 
   if (
     window.location.pathname === "/sign-in" ||
-    window.location.pathname === "/sign-up"
+    window.location.pathname === "/sign-up" ||
+    window.location.pathname === "/forgotPass"
   ) {
     return (
       <>
@@ -48,6 +49,9 @@ const App = () => {
           <SignIn />
         </Route>
         <Route path="/sign-up">
+          <SignIn />
+        </Route>
+        <Route path="/forgotPass">
           <SignIn />
         </Route>
       </>

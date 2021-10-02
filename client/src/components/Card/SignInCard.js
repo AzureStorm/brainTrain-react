@@ -100,7 +100,7 @@ const SignInCard = () => {
               </div>
               <div className="">
                 <a
-                  href="forgotpass.html"
+                  href="/forgotPass"
                   className="forgot"
                   id=""
                   style={{ fontSize: "13px" }}

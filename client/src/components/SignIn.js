@@ -1,6 +1,7 @@
 import React from "react";
 import SignInCard from "./Card/SignInCard";
 import SignUpCard from "./Card/SignUpCard";
+import ForgotPassCard from "./Card/ForgotPassCard";
 
 const SignIn = () => {
   const navItems = [
@@ -27,9 +28,6 @@ const SignIn = () => {
     },
   ];
 
-  const hRef =
-    document.location.pathname === "/sign-in" ? "./sign-in" : "./sign-up";
-
   const renderedItems = navItems.map((item) => {
     return (
       <li className="nav-item">
@@ -45,10 +43,9 @@ const SignIn = () => {
   });
 
   const bgImage =
-    document.location.pathname === "/sign-in"
-      ? "/img/background/rocket.png"
-      : "";
-  console.log("path is ");
+    document.location.pathname === "/sign-up"
+      ? ""
+      : "/img/background/rocket.png";
 
   return (
     <body
@@ -104,8 +101,10 @@ const SignIn = () => {
               <div className="row">
                 {window.location.pathname === "/sign-in" ? (
                   <SignInCard />
-                ) : (
+                ) : window.location.pathname === "/sign-up" ? (
                   <SignUpCard />
+                ) : (
+                  <ForgotPassCard />
                 )}
               </div>
             </div>
