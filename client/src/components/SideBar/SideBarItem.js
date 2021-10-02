@@ -30,6 +30,8 @@ const SideBarItem = ({
             ? ""
             : hRef === "./sign-in"
             ? ""
+            : hRef === "./sign-up"
+            ? ""
             : onClickButton
         }
         className={`nav-link  ${active} `}

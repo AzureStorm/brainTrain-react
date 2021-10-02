@@ -1,7 +1,6 @@
 import React from "react";
 import SignInCard from "./Card/SignInCard";
 import SignUpCard from "./Card/SignUpCard";
-import Link from "./Link";
 
 const SignIn = () => {
   const navItems = [
@@ -32,17 +31,9 @@ const SignIn = () => {
     document.location.pathname === "/sign-in" ? "./sign-in" : "./sign-up";
 
   const renderedItems = navItems.map((item) => {
-    const onNavClick = (event) => {
-      event.preventDefault();
-      window.history.pushState([], "", item.hRef);
-
-      const navEvent = new PopStateEvent("popstate");
-      window.dispatchEvent(navEvent);
-    };
     return (
       <li className="nav-item">
         <a
-          onClick={(e) => onNavClick(e)}
           className="nav-link d-flex align-items-center me-2 active"
           href={item.hRef}
         >
@@ -76,12 +67,12 @@ const SignIn = () => {
             {/*  <!-- Navbar -->*/}
             <nav className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
               <div className="container-fluid">
-                <Link
+                <a
                   className="navbar-brand font-weight-bolder ms-lg-0 ms-3 "
-                  href="./"
+                  href="/"
                 >
                   Brain Train
-                </Link>
+                </a>
                 <button
                   className="navbar-toggler shadow-none ms-2"
                   type="button"
