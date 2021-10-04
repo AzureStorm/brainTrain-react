@@ -6,7 +6,7 @@ const userSchema = new Schema({
   googleId: String,
   acctName: String,
   email: String,
-  username: { type: String, unique: true, required: true },
+  username: String,
   firstAttempts: Number,
   firstHighEasy: Number,
   firstHighMedium: Number,
@@ -25,6 +25,6 @@ const userSchema = new Schema({
   fourthHighHard: Number,
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
 mongoose.model("users", userSchema);

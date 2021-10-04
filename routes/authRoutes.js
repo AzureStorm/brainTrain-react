@@ -88,7 +88,9 @@ module.exports = (app) => {
       failureRedirect: "/login",
       failureFlash: true,
     }),
-    function (req, res) {
+    // function to call once successfully authenticated
+    (req, res) => {
+      res.send(req.user);
       res.redirect("/");
     }
   );
