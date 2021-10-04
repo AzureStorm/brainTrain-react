@@ -153,7 +153,7 @@ const SignUpCard = () => {
               <p className="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
                 Already have an account?{" "}
                 <a
-                  href="sign-in.html"
+                  href="/sign-in"
                   className="font-weight-bolder"
                   id="flexCheckDefault"
                 >

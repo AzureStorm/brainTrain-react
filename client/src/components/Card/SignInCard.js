@@ -51,19 +51,21 @@ const SignInCard = () => {
           <div className="card-body">
             <form role="form text-left">
               <h3 className="text-center text-dark mb-4">Sign In.</h3>
-              <button
-                id="google"
-                type="button"
-                className="btn w-100 mb-0"
-                style={{
-                  color: "#efca2e",
-                  border: "1px solid #efca2e",
-                  backgroundColor: "white",
-                }}
-              >
-                <i className="fa fa-google-plus-square">&nbsp;</i> Sign in with
-                Google
-              </button>
+              <a href="auth/google">
+                <button
+                  id="google"
+                  type="button"
+                  className="btn w-100 mb-0"
+                  style={{
+                    color: "#efca2e",
+                    border: "1px solid #efca2e",
+                    backgroundColor: "white",
+                  }}
+                >
+                  <i className="fa fa-google-plus-square">&nbsp;</i> Sign in
+                  with Google
+                </button>
+              </a>
               <div className="mb-3">
                 <p>
                   <small>
@@ -123,7 +125,7 @@ const SignInCard = () => {
               <p className="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
                 Don't have an account?{" "}
                 <a
-                  href="sign-up.html"
+                  href="/sign-up"
                   className="font-weight-bolder"
                   id="flexCheckDefault"
                   target="_blank"

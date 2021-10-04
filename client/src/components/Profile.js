@@ -9,6 +9,33 @@ const Profile = ({ user }) => {
   ];
 
   const renderedCards = progress.map((item, index) => {
+    switch (index) {
+      case 0:
+        var attempt = user.firstAttempts;
+        var highEasy = user.firstHighEasy;
+        var highMedium = user.firstHighMedium;
+        var highHard = user.firstHighHard;
+        break;
+
+      case 1:
+        var attempt = user.secondAttempts;
+        var highEasy = user.secondHighEasy;
+        var highMedium = user.secondHighMedium;
+        var highHard = user.secondHighHard;
+        break;
+      case 2:
+        var attempt = user.thirdAttempts;
+        var highEasy = user.thirdtHighEasy;
+        var highMedium = user.thirdHighMedium;
+        var highHard = user.thirdHighHard;
+        break;
+      case 3:
+        var attempt = user.fourthAttempts;
+        var highEasy = user.fourthHighEasy;
+        var highMedium = user.fourthHighMedium;
+        var highHard = user.fourthHighHard;
+        break;
+    }
     return (
       <div class="col-6 mt-4">
         <div class="card mb-4 p-3">
@@ -23,13 +50,17 @@ const Profile = ({ user }) => {
                   <div>
                     <div class="card-body px-1 pb-0">
                       <p class="mb-4 text-sm">
-                        Total number of attempts: {user.firstAttempts}
+                        Total number of attempts: {attempt}
                       </p>
                       <p class="mb-4 text-sm">
-                        Highest score (Easy): {user.firstHighEasy}
+                        Highest score (Easy): {highEasy}
                       </p>
-                      <p class="mb-4 text-sm">Highest score (Medium):</p>
-                      <p class="mb-4 text-sm">Highest score (Hard):</p>
+                      <p class="mb-4 text-sm">
+                        Highest score (Medium): {highMedium}
+                      </p>
+                      <p class="mb-4 text-sm">
+                        Highest score (Hard): {highHard}
+                      </p>
                       <p class="mb-4 text-sm">Remarks:</p>
                     </div>
                   </div>

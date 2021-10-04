@@ -147,7 +147,7 @@ const SideBar = ({ user }) => {
           ></i>
           <a
             class="navbar-brand m-0"
-            href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
+            href="/dashboard.html"
             target="_blank"
             rel="noreferrer"
           >
