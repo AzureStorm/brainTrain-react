@@ -21,10 +21,11 @@ const SignInCard = () => {
       axios
         .post("/api/login", { email: email, password: password })
         .then((res) => {
-          console.log("res");
-          console.log(res.statusText);
-          if (res.statusText === "OK") {
+          if (res.data === "Logged In") {
             window.location.assign("/");
+          } else if (res.data === "Error!") {
+            selectStatement("Wrong email or password");
+            handleShow();
           }
         });
     }
