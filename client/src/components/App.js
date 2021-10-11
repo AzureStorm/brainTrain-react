@@ -66,9 +66,7 @@ const App = () => {
             <Route path="/">
               <Dashboard />
             </Route>
-            <Route path="/modules">
-              <OverView />
-            </Route>
+
             <Route path="/assessments">
               <OverView
                 selectDifficulty={selectDifficulty}

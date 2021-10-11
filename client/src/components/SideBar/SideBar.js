@@ -21,7 +21,7 @@ const SideBar = ({ user }) => {
       routeLabel: "Home",
     },
     {
-      hRef: "./modules",
+      hRef: "/modules.html",
       viewBox: "0 0 42 42",
       title: "office",
       transform1: "translate(-1869.000000, -293.000000)",

@@ -6,6 +6,7 @@ const localy = mongoose.model("users");
 const quest2 = mongoose.model("secondSets");
 const quest3 = mongoose.model("thirdSets");
 const quest4 = mongoose.model("fourthSets");
+const path = require("path");
 
 module.exports = (app) => {
   app.get(
