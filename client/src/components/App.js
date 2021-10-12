@@ -4,7 +4,6 @@ import ScrollBar from "react-perfect-scrollbar";
 import SideBar from "./SideBar/SideBar";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-
 import OverView from "./OverView";
 import Dashboard from "./Dashboard";
 import About from "./About";
