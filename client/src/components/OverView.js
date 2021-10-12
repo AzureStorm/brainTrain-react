@@ -39,28 +39,28 @@ const OverView = ({ selectDifficulty, selectQuarter }) => {
       details:
         "This assessment covers the following: pre-colonial Philippine literature, reading styles, ways of determining word meaning, sounds of English and speech, and subject-verb agreement.",
       routeHeader: "Start 1st Quarter Assessment",
-      pic: "1Q",
+      pic: "1qbg",
     },
     {
       head: "2nd Quarter Assessments",
       details:
         "This assessment covers the following: Philippine literature during the Period of Apprenticeship, listening and viewing strategies, literal and figurative language, ways to extract andcondense information, and oral communication.",
       routeHeader: "Start 2nd Quarter Assessment",
-      pic: "2Q",
+      pic: "2qbg",
     },
     {
       head: "3rd Quarter Assessments",
       details:
         "This assessment covers the following: Philippine literature in the Period of Emergence, strategies in listening to and viewing of texts, word relationships, informative speech forms, passive/active voice, tenses, and sentence connectors.",
       routeHeader: "Start 3rd Quarter Assessment",
-      pic: "3Q",
+      pic: "3qbg",
     },
     {
       head: "4th Quarter Assessments",
       details:
         "This assessment covers the following: Contemporary Philippine literature, extended text types, lexical and contextual cues, appropriate and polite oral language, stance, and behavior, and use of imperatives, prepositions, verbs, and wh-questions.",
       routeHeader: "Start 4th Quarter Assessment",
-      pic: "4Q",
+      pic: "4qbg",
     },
   ];
   const selectedView =
