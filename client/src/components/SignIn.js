@@ -7,7 +7,7 @@ const SignIn = () => {
   const navItems = [
     { hRef: "./", route: "Home", icon: "fa fa-home opacity-6 text-dark me-1" },
     {
-      hRef: "./modules",
+      hRef: "/modules.html",
       route: "Modules",
       icon: "fa fa-book opacity-6 text-dark me-1",
     },
