@@ -4,7 +4,7 @@ import ScrollBar from "react-perfect-scrollbar";
 import SideBar from "./SideBar/SideBar";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import UIOptions from "./Options/UIOptions";
+
 import OverView from "./OverView";
 import Dashboard from "./Dashboard";
 import About from "./About";
@@ -28,6 +28,7 @@ const App = () => {
   const [questions, selectQuestions] = useState([]);
   const [testData, selectTestData] = useState([]);
   const [totalScore, selectTotalScore] = useState(0);
+  const [navbarPinned, selectNavBarPinned] = useState(false);
 
   useEffect(async () => {
     const getCurrentUser = async () => {
@@ -37,6 +38,8 @@ const App = () => {
     getCurrentUser();
     console.log(user);
   }, []);
+
+  const pin = navbarPinned === true ? "g-sidenav-pinned" : "";
 
   if (
     window.location.pathname === "/sign-in" ||
@@ -58,11 +61,15 @@ const App = () => {
     );
   } else {
     return (
-      <body className="g-sidenav-show  bg-gray-100">
+      <body className={`g-sidenav-show  bg-gray-100 ${pin} `}>
         <ScrollBar component="body">
           <SideBar user={user} />
           <main className="main-content position-relative  h-100 mt-1 border-radius-lg ">
-            <NavBar user={user} />
+            <NavBar
+              user={user}
+              navbarPinned={navbarPinned}
+              selectNavBarPinned={selectNavBarPinned}
+            />
             <Route path="/">
               <Dashboard />
             </Route>
@@ -119,7 +126,6 @@ const App = () => {
 
             <Footer />
           </main>
-          <UIOptions />
         </ScrollBar>
       </body>
     );

@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "./Link";
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
   const name = user.username == null ? "Sign-In" : user.username;
-  console.log("hello " + user.username);
-  console.log(user);
+
   return (
     <nav
       className="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
@@ -47,7 +46,9 @@ const NavBar = ({ user }) => {
             </li>
             <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a
-                href="javascript:;"
+                onClick={(e) => {
+                  selectNavBarPinned(!navbarPinned);
+                }}
                 className="nav-link text-body p-0"
                 id="iconNavbarSidenav"
               >
