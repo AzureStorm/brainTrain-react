@@ -53,11 +53,12 @@ const SignInCard = () => {
           <br />
 
           <div className="card-body">
-            <form role="form text-left">
+            <form role="form text-left" action="auth/google">
               <h3 className="text-center text-dark mb-4">Sign In.</h3>
               <button
+                value="Google OAuth"
                 id="google"
-                type="button"
+                type="submit"
                 className="btn w-100 mb-0"
                 style={{
                   color: "#efca2e",
