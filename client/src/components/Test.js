@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-
-import Result from "./Result";
 import Link from "./Link";
 import Button from "@restart/ui/esm/Button";
 
@@ -27,9 +25,13 @@ const Test = ({
   const [score, selectScore] = useState(0);
 
   const [show, setShow] = useState(false);
+  const [noShow, setNoShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleNoClose = () => setNoShow(false);
+  const handleNoShow = () => setNoShow(true);
 
   const activeQuestion = ranNums[pageNum - 1] - 1;
 
@@ -114,8 +116,9 @@ const Test = ({
   //Button click
   const onButtonClick = () => {
     console.log("score: " + score);
-
-    if (num < totalNum) {
+    if (answer === "" && num != 0) {
+      handleNoShow();
+    } else if (num < totalNum) {
       selectNum(num + 1);
       selectPageNum(numberOfQuestions[num]);
       selectActiveRadio(false);
@@ -271,6 +274,12 @@ const Test = ({
           </Link>
           <Button>No</Button>
         </Modal.Footer>
+      </Modal>
+      <Modal show={noShow} onHide={handleNoClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have not selected an answer</Modal.Body>
       </Modal>
     </div>
   );
