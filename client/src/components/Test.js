@@ -256,7 +256,6 @@ const Test = ({
                   {renderedItems}
                   {onNext}
                 </ul>
-                Score: {score}
               </div>
             </div>
             {/**Pop-up here */}

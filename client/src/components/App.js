@@ -60,10 +60,13 @@ const App = () => {
     );
   } else {
     return (
-      <body className={`g-sidenav-show  bg-gray-100 ${pin} `}>
+      <body className={`g-sidenav-show ${pin} `}>
         <ScrollBar component="body">
           <SideBar user={user} />
-          <main className="main-content position-relative  h-100 mt-1 border-radius-lg ">
+          <main
+            className="main-content position-relative  h-100 mt-1 border-radius-lg "
+            style={{ backgroundColor: "#f8f9fa" }}
+          >
             <NavBar
               user={user}
               navbarPinned={navbarPinned}
