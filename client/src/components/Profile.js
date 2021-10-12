@@ -102,6 +102,17 @@ const Profile = ({ user }) => {
                 <p class="mb-0 font-weight-bold text-sm">{user.email}</p>
               </div>
             </div>
+            <div>
+              <button
+                id="signOutBtn"
+                class="btn bg-secondary mb-0 px-2"
+                type="button"
+              >
+                <a href="/api/logout" class="text-white">
+                  Sign out
+                </a>
+              </button>
+            </div>
           </div>
         </div>
       </div>

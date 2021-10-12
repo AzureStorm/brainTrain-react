@@ -101,7 +101,9 @@ const SideBar = ({ user }) => {
   const renderedAccountBar = accountItems.map((item, index) => {
     console.log("sidebar");
     console.log(user);
-    if (user && index === 1) {
+    if (!user && index === 0) {
+      return;
+    } else if (user && index === 1) {
       return;
     }
 
