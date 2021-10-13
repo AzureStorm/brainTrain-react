@@ -25,7 +25,7 @@ const Profile = ({ user }) => {
         break;
       case 2:
         var attempt = user.thirdAttempts;
-        var highEasy = user.thirdtHighEasy;
+        var highEasy = user.thirdHighEasy;
         var highMedium = user.thirdHighMedium;
         var highHard = user.thirdHighHard;
         break;
