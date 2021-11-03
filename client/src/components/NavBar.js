@@ -1,8 +1,17 @@
-import React from "react";
-import Link from "./Link";
+import React, { useState } from "react";
+import { Form } from "react-bootstrap";
 
 const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
-  const name = user.username == null ? "Sign-In" : user.username;
+  const [query, setQuery] = useState("");
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("query", query);
+    window.location.assign("/query");
+  };
+
+  const onTextchange = (e) => {
+    setQuery(e);
+  };
 
   return (
     <nav
@@ -33,17 +42,7 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
         >
           <div className="ms-md-auto pe-md-3 d-flex align-items-center"></div>
           <ul className="navbar-nav  justify-content-end">
-            <li className="nav-item d-flex align-items-center">
-              <a
-                href="javascript:;"
-                className="nav-link text-body font-weight-bold px-0"
-              >
-                <i className="fa fa-user me-sm-1"></i>
-                <Link href="/sign-in">
-                  <span className="d-sm-inline d-none">{name}</span>
-                </Link>
-              </a>
-            </li>
+            <li className="nav-item d-flex align-items-center"></li>
             <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a
                 onClick={(e) => {
@@ -59,10 +58,20 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
                 </div>
               </a>
             </li>
-            <li className="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" className="nav-link text-body p-0">
-                <i className="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
+            <li>
+              <Form
+                onSubmit={(e) => {
+                  onFormSubmit(e);
+                }}
+              >
+                <Form.Control
+                  onChange={(e) => {
+                    onTextchange(e.target.value);
+                  }}
+                  placeholder="Search"
+                  type="text"
+                />
+              </Form>
             </li>
           </ul>
         </div>

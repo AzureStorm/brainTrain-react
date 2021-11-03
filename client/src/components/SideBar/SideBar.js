@@ -105,6 +105,8 @@ const SideBar = ({ user }) => {
       return;
     } else if (user && index === 1) {
       return;
+    } else if (user && index === 2) {
+      return;
     }
 
     return (

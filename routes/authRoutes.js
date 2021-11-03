@@ -6,6 +6,7 @@ const localy = mongoose.model("users");
 const quest2 = mongoose.model("secondSets");
 const quest3 = mongoose.model("thirdSets");
 const quest4 = mongoose.model("fourthSets");
+const lessons = mongoose.model("modules");
 const path = require("path");
 
 module.exports = (app) => {
@@ -97,6 +98,31 @@ module.exports = (app) => {
         return res.send("Logged In");
       });
     })(req, res, next);
+  });
+
+  app.post("/api/query", function (req, res) {
+    query = req.body.term;
+    console.log(query);
+    lessons.find({ description: new RegExp(query, "i") }, function (err, doc) {
+      console.log("docu: ");
+      console.log(doc);
+      res.json(doc);
+    });
+  });
+
+  app.post("/api/medals", function (req, res, next) {
+    localy.findOneAndUpdate(
+      { email: req.body.email },
+      { medals: req.body.medals },
+      null,
+      function (err, docs) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Original Doc : ", docs);
+        }
+      }
+    );
   });
 
   app.post(

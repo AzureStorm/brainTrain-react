@@ -8,6 +8,8 @@ const Profile = ({ user }) => {
     { quarter: "4th" },
   ];
 
+  const medals = user.medals;
+
   const renderedCards = progress.map((item, index) => {
     switch (index) {
       case 0:
@@ -36,6 +38,12 @@ const Profile = ({ user }) => {
         var highHard = user.fourthHighHard;
         break;
     }
+
+    var totalNum = 0;
+    highEasy ? (totalNum += 10) : (highEasy = 0);
+    highMedium ? (totalNum += 20) : (highMedium = 0);
+    highHard ? (totalNum += 40) : (highHard = 0);
+
     return (
       <div class="col-6 mt-4">
         <div class="card mb-4 p-3">
@@ -68,9 +76,8 @@ const Profile = ({ user }) => {
                 <div class="col-xl-6 col-md-6 mb-xl-0 mb-4">
                   <div>
                     <div class="card-body px-1 pb-0">
-                      percentage here (sum of all scores from each attempt
-                      (easy, medium & hard) divided by no. of items of each
-                      attempt) x 100
+                      Total Percentage:{" "}
+                      {((highEasy + highMedium + highHard) / totalNum) * 100}%
                     </div>
                   </div>
                 </div>
@@ -79,6 +86,16 @@ const Profile = ({ user }) => {
           </div>
         </div>
       </div>
+    );
+  });
+
+  const renderedMedals = medals.map((item) => {
+    return (
+      <>
+        <li class="list-inline-item">
+          <img src={`img/${item}.png`} />
+        </li>
+      </>
     );
   });
 
@@ -135,10 +152,7 @@ const Profile = ({ user }) => {
                       Medals acquired from practice assessments will be shown
                       here.
                     </p>
-                    <ul class="list-inline-group">
-                      <li class="list-inline-item">getAllMedals()</li>
-                      <li class="list-inline-item">getAllMedals()</li>
-                    </ul>
+                    <ul class="list-inline-group">{renderedMedals}</ul>
                   </div>
                 </div>
               </div>

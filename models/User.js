@@ -23,6 +23,7 @@ const userSchema = new Schema({
   fourthHighEasy: Number,
   fourthHighMedium: Number,
   fourthHighHard: Number,
+  medals: Array,
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });

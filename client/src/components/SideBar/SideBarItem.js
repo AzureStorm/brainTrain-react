@@ -13,14 +13,12 @@ const SideBarItem = ({
   routeLabel,
 }) => {
   const onClickButton = (event) => {
-    event.preventDefault();
     window.history.pushState([], "", hRef);
 
     const navEvent = new PopStateEvent("popstate");
     window.dispatchEvent(navEvent);
   };
-
-  const active = hRef === "." + window.location.pathname ? "active" : "";
+  var active = hRef === "." + window.location.pathname ? "active" : "";
 
   return (
     <li className="nav-item">

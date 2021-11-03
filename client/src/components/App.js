@@ -14,6 +14,7 @@ import Lessons from "./Modules/Lessons";
 import Test from "./Test";
 import Result from "./Result";
 import Profile from "./Profile";
+import QueryResult from "./QueryResult";
 
 import "react-perfect-scrollbar/dist/css/styles.css";
 
@@ -27,6 +28,8 @@ const App = () => {
   const [questions, selectQuestions] = useState([]);
   const [testData, selectTestData] = useState([]);
   const [totalScore, selectTotalScore] = useState(0);
+  const [time, selectTime] = useState("");
+  const [minute, selectMinute] = useState(0);
   const [navbarPinned, selectNavBarPinned] = useState(false);
 
   useEffect(async () => {
@@ -108,6 +111,8 @@ const App = () => {
                 selectQuestions={selectQuestions}
                 selectTestData={selectTestData}
                 selectTotalScore={selectTotalScore}
+                selectTime={selectTime}
+                selectMinute={selectMinute}
               />
             </Route>
 
@@ -119,11 +124,17 @@ const App = () => {
                 questions={questions}
                 testData={testData}
                 score={totalScore}
+                time={time}
+                minute={minute}
               />
             </Route>
 
             <Route path="/profile">
               <Profile user={user} />
+            </Route>
+
+            <Route path="/query">
+              <QueryResult />
             </Route>
 
             <Footer />

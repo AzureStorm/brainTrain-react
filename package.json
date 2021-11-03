@@ -28,6 +28,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "react-perfect-scrollbar": "^1.5.8"
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-timer-hook": "^3.0.5"
   }
 }

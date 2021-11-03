@@ -2,7 +2,16 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import Link from "./Link";
 
-const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
+const Result = ({
+  user,
+  difficulty,
+  quarter,
+  questions,
+  testData,
+  score,
+  time,
+  minute,
+}) => {
   useEffect(() => {
     var totalAttempts = 0;
 
@@ -22,8 +31,7 @@ const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
         totalAttempts = user.fourthAttempts;
         break;
     }
-    console.log("attempts");
-    console.log(totalAttempts);
+
     axios
       .post("api/score", {
         email: user.email,
@@ -34,6 +42,25 @@ const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
       })
       .then((res) => {});
   }, []);
+
+  var medals = [];
+
+  if (minute < 20) {
+    medals.push("20");
+  }
+  if (minute < 15) {
+    medals.push("15");
+  }
+  if (minute < 10) {
+    medals.push("10");
+  }
+
+  axios
+    .post("api/medals", {
+      email: user.email,
+      medals: medals,
+    })
+    .then((res) => {});
 
   const renderAnswers = questions.map((item, index) => {
     var answer =
@@ -69,6 +96,17 @@ const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
     }
   });
 
+  const renderedMedals = medals.map((item) => {
+    return (
+      <>
+        <li class="list-inline-item">
+          <img src={`img/${item}.png`} />
+        </li>
+        <br />
+      </>
+    );
+  });
+
   return (
     <>
       <div class="row">
@@ -87,6 +125,7 @@ const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
                         <h4 class=" font-weight-bolder mb-4">
                           Assessment Result:
                         </h4>
+                        <h5 class="  font-weight-bolder">Time taken: {time}</h5>
                         <h5 class="  font-weight-bolder">
                           insertScoreRemark()
                         </h5>
@@ -123,9 +162,8 @@ const Result = ({ user, difficulty, quarter, questions, testData, score }) => {
                 <h4 class="  font-weight-bolder mb-4 pt-4">
                   Acquired medals in this assessment:
                 </h4>
-                <ul class="list-inline-group">
-                  <li class="list-inline-item  ">giveMedal()</li>
-                </ul>
+
+                <ul class="list-inline-group">{renderedMedals}</ul>
               </div>
             </div>
           </div>

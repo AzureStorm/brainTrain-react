@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useStopwatch } from "react-timer-hook";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Link from "./Link";
@@ -11,7 +12,13 @@ const Test = ({
   selectQuestions,
   selectTestData,
   selectTotalScore,
+  selectTime,
+  selectMinute,
 }) => {
+  const { seconds, minutes, start, pause } = useStopwatch({
+    autoStart: true,
+  });
+
   const totalNum = difficulty;
   const numberOfQuestions = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -23,14 +30,15 @@ const Test = ({
   const [ranNums, selectRanNums] = useState([1, 2, 3]);
   const [activeRadio, selectActiveRadio] = useState(null);
   const [score, selectScore] = useState(0);
+  const [answer, selectAnswer] = useState("");
 
   const [show, setShow] = useState(false);
   const [noShow, setNoShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => (setShow(false), start());
   const handleShow = () => setShow(true);
 
-  const handleNoClose = () => setNoShow(false);
+  const handleNoClose = () => (setNoShow(false), start());
   const handleNoShow = () => setNoShow(true);
 
   const activeQuestion = ranNums[pageNum - 1] - 1;
@@ -39,7 +47,6 @@ const Test = ({
   var currentQuestion = "";
   var ifImage = null;
   var imageChoice = false;
-  var answer = "";
 
   //Question randomizer
   useEffect(() => {
@@ -110,13 +117,13 @@ const Test = ({
     } else {
       imageChoice = false;
     }
-    console.log(quarter);
   }
 
   //Button click
   const onButtonClick = () => {
-    console.log("score: " + score);
     if (answer === "" && num != 0) {
+      pause();
+
       handleNoShow();
     } else if (num < totalNum) {
       selectNum(num + 1);
@@ -136,10 +143,13 @@ const Test = ({
         : selectScore(score + 0);
 
       selectTotalScore(score);
-      console.log("totyal score: " + score);
 
+      pause();
+      selectMinute(minutes);
+      selectTime(`${minutes}:${seconds}`);
       handleShow();
     }
+    selectAnswer("");
   };
 
   //Render pageions
@@ -161,8 +171,8 @@ const Test = ({
 
   //When clicking answer choice
   const onRadioChange = (e) => {
-    answer = e.target.value;
-    console.log(answer);
+    selectAnswer(e.target.value);
+
     selectActiveRadio(null);
   };
 
@@ -240,6 +250,9 @@ const Test = ({
         <div class="col-12 mt-4">
           <div class="card mb-4">
             <div class="card-header pb-0 p-3">
+              <p class="text-center">
+                Time: <span>{minutes}</span>:<span>{seconds}</span>
+              </p>
               <p class="text-center">
                 Question <span>{pageNum}</span> of {totalNum}
               </p>
