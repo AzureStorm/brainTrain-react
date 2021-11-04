@@ -24,7 +24,7 @@ const App = () => {
   const [header, selectHeader] = useState("");
   const [difficulty, selectDifficulty] = useState(10);
   const [quarter, selectQuarter] = useState(1);
-  const [user, selectUser] = useState([]);
+  const [user, selectUser] = useState([{}]);
   const [questions, selectQuestions] = useState([]);
   const [testData, selectTestData] = useState([]);
   const [totalScore, selectTotalScore] = useState(0);
@@ -32,14 +32,19 @@ const App = () => {
   const [minute, selectMinute] = useState(0);
   const [navbarPinned, selectNavBarPinned] = useState(false);
 
-  useEffect(async () => {
-    const getCurrentUser = async () => {
-      const getUser = await axios.get(`/api/current_user`);
-      selectUser(getUser.data);
-    };
-    getCurrentUser();
-    console.log(user);
+  useEffect(() => {
+    axios.get(`/api/current_user`).then((res) => {
+      selectUser(res.data);
+    });
   }, []);
+
+  if (user.email === undefined) {
+    console.log("hello aat outside");
+    localStorage.setItem("auth", "guest");
+  } else {
+    console.log("hello outside user");
+    localStorage.setItem("auth", "user");
+  }
 
   const pin = navbarPinned === true ? "g-sidenav-pinned" : "";
 

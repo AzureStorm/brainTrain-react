@@ -12,31 +12,11 @@ const SideBarItem = ({
   d4,
   routeLabel,
 }) => {
-  const onClickButton = (event) => {
-    window.history.pushState([], "", hRef);
-
-    const navEvent = new PopStateEvent("popstate");
-    window.dispatchEvent(navEvent);
-  };
   var active = hRef === "." + window.location.pathname ? "active" : "";
 
   return (
     <li className="nav-item">
-      <a
-        onClick={
-          hRef === "/api/logout"
-            ? ""
-            : hRef === "./sign-in"
-            ? ""
-            : hRef === "./sign-up"
-            ? ""
-            : hRef === "/modules.html"
-            ? ""
-            : onClickButton
-        }
-        className={`nav-link  ${active} `}
-        href={hRef}
-      >
+      <a className={`nav-link  ${active} `} href={hRef}>
         <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
           <svg
             className="text-dark"

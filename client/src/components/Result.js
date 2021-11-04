@@ -46,13 +46,13 @@ const Result = ({
   var medals = [];
 
   if (minute < 20) {
-    medals.push("20");
+    medals.push(20);
   }
   if (minute < 15) {
-    medals.push("15");
+    medals.push(15);
   }
   if (minute < 10) {
-    medals.push("10");
+    medals.push(10);
   }
 
   axios

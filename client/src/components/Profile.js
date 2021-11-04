@@ -8,7 +8,7 @@ const Profile = ({ user }) => {
     { quarter: "4th" },
   ];
 
-  const medals = user.medals;
+  var medals = user.medals;
 
   const renderedCards = progress.map((item, index) => {
     switch (index) {
@@ -89,16 +89,23 @@ const Profile = ({ user }) => {
     );
   });
 
-  const renderedMedals = medals.map((item) => {
-    return (
-      <>
-        <li class="list-inline-item">
-          <img src={`img/${item}.png`} />
-        </li>
-      </>
-    );
-  });
+  var renderedMedals =
+    user.medals === undefined
+      ? ""
+      : medals.map((item) => {
+          return (
+            <>
+              <li class="list-inline-item">
+                <img src={`img/${item}.png`} />
+              </li>
+            </>
+          );
+        });
 
+  const onLogoutClick = () => {
+    localStorage.removeItem("auth");
+    window.location.assign("/api/logout");
+  };
   return (
     <>
       <div class="container-fluid">
@@ -125,7 +132,7 @@ const Profile = ({ user }) => {
                 class="btn bg-secondary mb-0 px-2"
                 type="button"
               >
-                <a href="/api/logout" class="text-white">
+                <a onClick={(e) => onLogoutClick()} class="text-white">
                   Sign out
                 </a>
               </button>
