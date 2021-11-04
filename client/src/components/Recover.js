@@ -7,7 +7,7 @@ const Recover = () => {
   const [email, setEmail] = useState(localStorage.getItem("email_forgot"));
   const [password, setPassword] = useState("");
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => (setShow(false), window.location.assign("/"));
   const handleShow = () => setShow(true);
 
   const onButtonClick = () => {
