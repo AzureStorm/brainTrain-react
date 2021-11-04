@@ -15,6 +15,7 @@ import Test from "./Test";
 import Result from "./Result";
 import Profile from "./Profile";
 import QueryResult from "./QueryResult";
+import Recover from "./Recover";
 
 import "react-perfect-scrollbar/dist/css/styles.css";
 
@@ -51,7 +52,8 @@ const App = () => {
   if (
     window.location.pathname === "/sign-in" ||
     window.location.pathname === "/sign-up" ||
-    window.location.pathname === "/forgotPass"
+    window.location.pathname === "/forgotPass" ||
+    window.location.pathname === "/recover"
   ) {
     return (
       <>
@@ -63,6 +65,9 @@ const App = () => {
         </Route>
         <Route path="/forgotPass">
           <SignIn />
+        </Route>
+        <Route path="/recover">
+          <Recover />
         </Route>
       </>
     );
