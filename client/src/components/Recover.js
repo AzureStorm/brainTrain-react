@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
-const ForgotPassCard = () => {
+const Recover = () => {
   const [show, setShow] = useState(false);
-  const [email, selectEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("email_forgot"));
+  const [password, setPassword] = useState("");
 
-  const handleClose = () => (setShow(false), window.location.assign("/"));
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const onButtonClick = () => {
-    localStorage.setItem("email_forgot", email);
-    axios.post("api/forgot_pass", { email: email });
-    handleShow();
+    axios
+      .post("api/new_password", { email: email, password: password })
+      .then((res) => {
+        localStorage.removeItem("email_forgot");
+        handleShow();
+      });
   };
 
   const onFormSubmit = (e) => {
@@ -23,26 +27,14 @@ const ForgotPassCard = () => {
   return (
     <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
       <div class="card-plain mt-4">
-        <br />
-        <br />
-        <br />
-
         <div class="card-body">
-          <form
-            onSubmit={(e) => {
-              onFormSubmit(e);
-            }}
-            role="form text-left"
-          >
-            <h3 class="text-center text-dark mb-2">Forgot Password?</h3>
+          <form role="form text-left" onSubmit={(e) => onFormSubmit(e)}>
+            <h3 class="text-center text-dark mb-2">Change Password</h3>
             <div class="mb-0">
               <p>
                 <small>
                   <center>
-                    <b>
-                      We'll send you an email to reset your password
-                      successfully.
-                    </b>
+                    <b>Change Password of Brain Train Account: {email}</b>
                   </center>
                 </small>
               </p>
@@ -50,10 +42,10 @@ const ForgotPassCard = () => {
 
             <div class="mb-3">
               <input
-                onChange={(e) => selectEmail(e.target.value)}
-                type="email"
+                onChange={(e) => setPassword(e.target.value)}
+                type="text"
                 class="form-control"
-                placeholder="Email"
+                placeholder="New Password"
                 aria-label="Email"
                 aria-describedby="email-addon"
               />
@@ -64,20 +56,8 @@ const ForgotPassCard = () => {
                 class="btn w-100 my-4 mb-2"
                 style={{ backgroundColor: "#efac2e", color: "white" }}
               >
-                Send Confirmation Email
+                Change Password
               </button>
-              <p class="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
-                Don't have an account?{" "}
-                <a
-                  href="sign-up.html"
-                  class="font-weight-bolder"
-                  id="flexCheckDefault"
-                  target="_blank"
-                  style={{ color: "#efac2e" }}
-                >
-                  Sign up
-                </a>
-              </p>
             </div>
           </form>
         </div>
@@ -87,8 +67,8 @@ const ForgotPassCard = () => {
           <Modal.Title>Email Sent</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>We have sent an email to the given email address.</p> Please look
-          at it for further instructions.
+          <p>We have changed your account's password successfully.</p> Please
+          log-in to Brain Train
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={(e) => handleClose()}>
@@ -100,4 +80,4 @@ const ForgotPassCard = () => {
   );
 };
 
-export default ForgotPassCard;
+export default Recover;

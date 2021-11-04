@@ -7,6 +7,8 @@ const quest2 = mongoose.model("secondSets");
 const quest3 = mongoose.model("thirdSets");
 const quest4 = mongoose.model("fourthSets");
 const lessons = mongoose.model("modules");
+const nodemailer = require("nodemailer");
+
 const path = require("path");
 
 module.exports = (app) => {
@@ -58,6 +60,51 @@ module.exports = (app) => {
     quest4.find({}).exec((err, questions4) => {
       res.send(questions4);
     });
+  });
+
+  app.post("/api/forgot_pass", function (req, res) {
+    var transport = nodemailer.createTransport({
+      host: "smtp.mailtrap.io",
+      port: 2525,
+      auth: {
+        user: "65b51db514c0e9",
+        pass: "9c8a216b27a8fc",
+      },
+    });
+
+    message = {
+      from: "from-example@email.com",
+      to: req.body.email,
+      subject: "Forgot Password",
+      html: `<p>You have sent a request to change your password. Click <a href="https://braintra-in.herokuapp.com/recover">here</a> to change your password.</p> <p> If this email does not concern you, feel free to ignore this message</p>`,
+    };
+
+    transport.sendMail(message, function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(info);
+      }
+    });
+    res.send("getto");
+  });
+
+  app.post("/api/new_password", function (req, res) {
+    localy.findByUsername(req.body.email).then(
+      function (sanitizedUser) {
+        if (sanitizedUser) {
+          sanitizedUser.setPassword(req.body.password, function () {
+            sanitizedUser.save();
+            res.status(200).json({ message: "password reset successful" });
+          });
+        } else {
+          res.status(500).json({ message: "This user does not exist" });
+        }
+      },
+      function (err) {
+        console.error(err);
+      }
+    );
   });
 
   app.post("/api/register", function (req, res) {
