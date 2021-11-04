@@ -64,16 +64,15 @@ module.exports = (app) => {
 
   app.post("/api/forgot_pass", function (req, res) {
     var transport = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
+      service: "gmail",
       auth: {
-        user: "65b51db514c0e9",
-        pass: "9c8a216b27a8fc",
+        user: "karlbenedict.gella.iics@ust.edu.ph",
+        pass: "azureflame123",
       },
     });
 
     message = {
-      from: "from-example@email.com",
+      from: "BrainTrain2gmail.com",
       to: req.body.email,
       subject: "Forgot Password",
       html: `<p>You have sent a request to change your password. Click <a href="https://braintra-in.herokuapp.com/recover">here</a> to change your password.</p> <p> If this email does not concern you, feel free to ignore this message</p>`,
