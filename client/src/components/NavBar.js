@@ -40,7 +40,27 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
           className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
           id="navbar"
         >
-          <div className="ms-md-auto pe-md-3 d-flex align-items-center"></div>
+          <div className="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group">
+              <span class="input-group-text text-body">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </span>
+              <form
+                onSubmit={(e) => {
+                  onFormSubmit(e);
+                }}
+              >
+                <input
+                  onChange={(e) => {
+                    onTextchange(e.target.value);
+                  }}
+                  type="text"
+                  class="form-control"
+                  placeholder="Search here..."
+                />
+              </form>
+            </div>
+          </div>
           <ul className="navbar-nav  justify-content-end">
             <li className="nav-item d-flex align-items-center"></li>
             <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -57,21 +77,6 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
                   <i className="sidenav-toggler-line"></i>
                 </div>
               </a>
-            </li>
-            <li>
-              <Form
-                onSubmit={(e) => {
-                  onFormSubmit(e);
-                }}
-              >
-                <Form.Control
-                  onChange={(e) => {
-                    onTextchange(e.target.value);
-                  }}
-                  placeholder="Search"
-                  type="text"
-                />
-              </Form>
             </li>
           </ul>
         </div>

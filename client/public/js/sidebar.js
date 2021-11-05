@@ -11,3 +11,10 @@ function hideItems() {
     list[0].removeChild(list[0].childNodes[11]);
   }
 }
+
+function searchQuery() {
+  var term = document.getElementById("query").value;
+  localStorage.setItem("query", term);
+  console.log("Gonna search");
+  window.location.assign("/query");
+}

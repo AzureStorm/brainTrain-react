@@ -43,7 +43,7 @@ const Recover = () => {
             <div class="mb-3">
               <input
                 onChange={(e) => setPassword(e.target.value)}
-                type="text"
+                type="password"
                 class="form-control"
                 placeholder="New Password"
                 aria-label="Email"

@@ -276,12 +276,21 @@
           <h6 class="font-weight-bolder mb-0">1st Quarter</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <!-- <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Search here...">
-            </div> -->
-          </div>
+           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+              <form onsubmit="event.preventDefault(); searchQuery()">
+                <div class="input-group">
+                  <span class="input-group-text text-body"
+                    ><i class="fas fa-search" aria-hidden="true"></i
+                  ></span>
+                  <input
+                    id="query"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search here..."
+                  />
+                </div>
+              </form>
+            </div>
           <ul class="navbar-nav  justify-content-end">
              
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -385,11 +394,7 @@
                       <a href="1stQ/RC/1RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -413,11 +418,7 @@
                       <a href="1stQ/RC/2RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -441,11 +442,7 @@
                       <a href="1stQ/RC/3RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -469,11 +466,7 @@
                       <a href="1stQ/RC/4RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- Drill 1 -->
@@ -495,11 +488,7 @@
                       <a href="1stQ/RC/1QRCDrill1.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -523,11 +512,7 @@
                       <a href="1stQ/RC/5RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -551,11 +536,7 @@
                       <a href="1stQ/RC/6RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- Drill 2 -->
@@ -577,11 +558,7 @@
                       <a href="1stQ/RC/1QRCDrill2.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -605,11 +582,7 @@
                       <a href="1stQ/RC/7RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -633,11 +606,7 @@
                       <a href="1stQ/RC/8RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
                 <!-- Drill 3 -->
@@ -659,11 +628,7 @@
                       <a href="1stQ/RC/1QRCDrill3.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -687,11 +652,7 @@
                       <a href="1stQ/RC/9RC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
               </tbody>
             </table>
@@ -734,11 +695,7 @@
                       <a href="1stQ/LC/1LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -762,11 +719,7 @@
                       <a href="1stQ/LC/2LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -790,11 +743,7 @@
                       <a href="1stQ/LC/3LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -818,11 +767,7 @@
                       <a href="1stQ/LC/4LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -846,11 +791,7 @@
                       <a href="1stQ/LC/5LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -874,11 +815,7 @@
                       <a href="1stQ/LC/6LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -902,11 +839,7 @@
                       <a href="1stQ/LC/7LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -930,11 +863,7 @@
                       <a href="1stQ/LC/8LC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
               </tbody>
@@ -978,11 +907,7 @@
                       <a href="1stQ/VC/1VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -1006,11 +931,7 @@
                       <a href="1stQ/VC/2VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -1034,11 +955,7 @@
                       <a href="1stQ/VC/3VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -1062,11 +979,7 @@
                       <a href="1stQ/VC/4VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -1090,11 +1003,7 @@
                       <a href="1stQ/VC/5VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -1118,11 +1027,7 @@
                       <a href="1stQ/VC/6VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -1146,11 +1051,7 @@
                       <a href="1stQ/VC/7VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -1174,11 +1075,7 @@
                       <a href="1stQ/VC/8VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -1202,11 +1099,7 @@
                       <a href="1stQ/VC/9VC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
                 <!-- Drill 4 -->
@@ -1228,11 +1121,7 @@
                       <a href="1stQ/VC/1QVCDrill1.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
               </tbody>
             </table>
@@ -1275,11 +1164,7 @@
                       <a href="1stQ/VD/1VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -1303,11 +1188,7 @@
                       <a href="1stQ/VD/2VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -1331,11 +1212,7 @@
                       <a href="1stQ/VD/3VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -1359,11 +1236,7 @@
                       <a href="1stQ/VD/4VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -1387,11 +1260,7 @@
                       <a href="1stQ/VD/5VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -1415,11 +1284,7 @@
                       <a href="1stQ/VD/6VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -1443,11 +1308,7 @@
                       <a href="1stQ/VD/7VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -1471,11 +1332,7 @@
                       <a href="1stQ/VD/8VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -1499,11 +1356,7 @@
                       <a href="1stQ/VD/9VD.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
                 <!-- Drill 5 -->
@@ -1525,11 +1378,7 @@
                       <a href="1stQ/VD/1QVDDrill1.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
               </tbody>
             </table>
@@ -1572,11 +1421,7 @@
                       <a href="1stQ/LIT/1LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -1600,11 +1445,7 @@
                       <a href="1stQ/LIT/2LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -1628,11 +1469,7 @@
                       <a href="1stQ/LIT/3LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -1656,11 +1493,7 @@
                       <a href="1stQ/LIT/4LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -1684,11 +1517,7 @@
                       <a href="1stQ/LIT/5LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -1712,11 +1541,7 @@
                       <a href="1stQ/LIT/6LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -1740,11 +1565,7 @@
                       <a href="1stQ/LIT/7LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -1768,11 +1589,7 @@
                       <a href="1stQ/LIT/8LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -1796,11 +1613,7 @@
                       <a href="1stQ/LIT/9LIT.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
               </tbody>
             </table>
@@ -1843,11 +1656,7 @@
                       <a href="1stQ/WC/1WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -1871,11 +1680,7 @@
                       <a href="1stQ/WC/2WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -1899,11 +1704,7 @@
                       <a href="1stQ/WC/3WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -1927,11 +1728,7 @@
                       <a href="1stQ/WC/4WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -1955,11 +1752,7 @@
                       <a href="1stQ/WC/5WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -1983,11 +1776,7 @@
                       <a href="1stQ/WC/6WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -2011,11 +1800,7 @@
                       <a href="1stQ/WC/7WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -2039,11 +1824,7 @@
                       <a href="1stQ/WC/8WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -2067,11 +1848,7 @@
                       <a href="1stQ/WC/9WC.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
                 <!-- Drill 6 -->
@@ -2093,11 +1870,7 @@
                       <a href="1stQ/WC/1QWCDrill1.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
               </tbody>
             </table>
@@ -2140,11 +1913,7 @@
                       <a href="1stQ/OL/1OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -2168,11 +1937,7 @@
                       <a href="1stQ/OL/2OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -2196,11 +1961,7 @@
                       <a href="1stQ/OL/3OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -2224,11 +1985,7 @@
                       <a href="1stQ/OL/4OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -2252,11 +2009,7 @@
                       <a href="1stQ/OL/5OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -2280,11 +2033,7 @@
                       <a href="1stQ/OL/6OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -2308,11 +2057,7 @@
                       <a href="1stQ/OL/7OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -2336,11 +2081,7 @@
                       <a href="1stQ/OL/8OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -2364,11 +2105,7 @@
                       <a href="1stQ/OL/9OL.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
               </tbody>
@@ -2412,11 +2149,7 @@
                       <a href="1stQ/GA/1GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R2 -->
@@ -2440,11 +2173,7 @@
                       <a href="1stQ/GA/2GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R3 -->
@@ -2468,11 +2197,7 @@
                       <a href="1stQ/GA/3GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R4 -->
@@ -2496,11 +2221,7 @@
                       <a href="1stQ/GA/4GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R5 -->
@@ -2524,11 +2245,7 @@
                       <a href="1stQ/GA/5GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R6 -->
@@ -2552,11 +2269,7 @@
                       <a href="1stQ/GA/6GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R7 -->
@@ -2580,11 +2293,7 @@
                       <a href="1stQ/GA/7GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R8 -->
@@ -2608,11 +2317,7 @@
                       <a href="1stQ/GA/8GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
 
                 <!-- R9 -->
@@ -2636,11 +2341,7 @@
                       <a href="1stQ/GA/9GA.html"><i class="fa fa-eye text-xs" aria-hidden="true"></i></a></i>
                     </button>
                   </td>
-                  <td class="align-middle">
-                    <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-share text-xs" aria-hidden="true"></i>
-                    </button>
-                  </td>
+             
                 </tr>
                 
               </tbody>
