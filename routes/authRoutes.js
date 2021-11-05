@@ -72,7 +72,7 @@ module.exports = (app) => {
     });
 
     message = {
-      from: "BrainTrain2gmail.com",
+      from: "braintrain.noreply@gmail.com",
       to: req.body.email,
       subject: "Forgot Password",
       html: `<p>You have sent a request to change your password. Click <a href="https://braintra-in.herokuapp.com/recover">here</a> to change your password.</p> <p> If this email does not concern you, feel free to ignore this message</p>`,
