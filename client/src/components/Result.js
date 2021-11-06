@@ -11,6 +11,7 @@ const Result = ({
   score,
   time,
   minute,
+  setReset,
 }) => {
   useEffect(() => {
     var totalAttempts = 0;
@@ -40,7 +41,9 @@ const Result = ({
         attempts: totalAttempts,
         difficulty: difficulty,
       })
-      .then((res) => {});
+      .then((res) => {
+        setReset(score);
+      });
   }, []);
 
   var medals = [];
@@ -102,7 +105,6 @@ const Result = ({
         <li class="list-inline-item">
           <img src={`img/${item}.png`} />
         </li>
-        <br />
       </>
     );
   });
@@ -127,7 +129,7 @@ const Result = ({
                         </h4>
                         <h5 class="  font-weight-bolder">Time taken: {time}</h5>
                         <h5 class="  font-weight-bolder">
-                          insertScoreRemark()
+                          {/*insertScoreRemark()*/}
                         </h5>
                         <p class=" ">
                           <span>{score}</span> out of <span>{difficulty}</span>{" "}

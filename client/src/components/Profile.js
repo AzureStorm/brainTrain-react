@@ -69,7 +69,6 @@ const Profile = ({ user }) => {
                       <p class="mb-4 text-sm">
                         Highest score (Hard): {highHard}
                       </p>
-                      <p class="mb-4 text-sm">Remarks:</p>
                     </div>
                   </div>
                 </div>
@@ -157,7 +156,7 @@ const Profile = ({ user }) => {
                     <h6 class="mb-1 text-white">Achievements</h6>
                     <p class="text-sm">
                       Medals acquired from practice assessments will be shown
-                      here.
+                      here:
                     </p>
                     <ul class="list-inline-group">{renderedMedals}</ul>
                   </div>

@@ -32,12 +32,13 @@ const App = () => {
   const [time, selectTime] = useState("");
   const [minute, selectMinute] = useState(0);
   const [navbarPinned, selectNavBarPinned] = useState(false);
+  const [reset, setReset] = useState(0);
 
   useEffect(() => {
     axios.get(`/api/current_user`).then((res) => {
       selectUser(res.data);
     });
-  }, []);
+  }, [reset]);
 
   if (user.email === undefined) {
     console.log("hello aat outside");
@@ -136,6 +137,7 @@ const App = () => {
                 score={totalScore}
                 time={time}
                 minute={minute}
+                setReset={setReset}
               />
             </Route>
 
