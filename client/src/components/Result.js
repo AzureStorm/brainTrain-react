@@ -77,20 +77,23 @@ const Result = ({
 
     if (index < difficulty) {
       return (
-        <div class="col-lg-12 mt-4">
-          <div class=" card h-100 p-3 " style={{ backgroundColor: "#CB0C9F" }}>
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
-              <span class="mask bg-gradient-dark"></span>
+        <div className="col-lg-12 mt-4">
+          <div
+            className=" card h-100 p-3 "
+            style={{ backgroundColor: "#CB0C9F" }}
+          >
+            <div className="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
+              <span className="mask bg-gradient-dark"></span>
               <div
-                class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+                className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
                 style={{ backgroundColor: "white" }}
               >
-                <h5 class="  font-weight-bolder mb-4 pt-2">
+                <h5 className="  font-weight-bolder mb-4 pt-2">
                   {`Question ${index + 1}`}
                 </h5>
-                <p class=" ">{testData[item - 1].q}</p>
-                <p class=" ">Correct Answer:</p>
-                <p class=" ">{`${testData[item - 1].ans}. ${answer}`}</p>
+                <p className=" ">{testData[item - 1].q}</p>
+                <p className=" ">Correct Answer:</p>
+                <p className=" ">{`${testData[item - 1].ans}. ${answer}`}</p>
               </div>
             </div>
           </div>
@@ -102,7 +105,7 @@ const Result = ({
   const renderedMedals = medals.map((item) => {
     return (
       <>
-        <li class="list-inline-item">
+        <li className="list-inline-item">
           <img src={`img/${item}.png`} />
         </li>
       </>
@@ -111,37 +114,42 @@ const Result = ({
 
   return (
     <>
-      <div class="row">
-        <div class="col-lg-6 mt-4">
-          <div class=" card h-100 p-3 " style={{ backgroundColor: "#CB0C9F" }}>
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
-              <span class="mask bg-gradient-dark"></span>
+      <div className="row">
+        <div className="col-lg-6 mt-4">
+          <div
+            className=" card h-100 p-3 "
+            style={{ backgroundColor: "#CB0C9F" }}
+          >
+            <div className="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
+              <span className="mask bg-gradient-dark"></span>
               <div
-                class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+                className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
                 style={{ backgroundColor: "white" }}
               >
-                <div class="row">
-                  <div class="col-xl-6 col-md-6 mb-xl-0 mb-4">
+                <div className="row">
+                  <div className="col-xl-6 col-md-6 mb-xl-0 mb-4">
                     <div>
-                      <div class="card-body px-1 pb-0">
-                        <h4 class=" font-weight-bolder mb-4">
+                      <div className="card-body px-1 pb-0">
+                        <h4 className=" font-weight-bolder mb-4">
                           Assessment Result:
                         </h4>
-                        <h5 class="  font-weight-bolder">Time taken: {time}</h5>
-                        <h5 class="  font-weight-bolder">
+                        <h5 className="  font-weight-bolder">
+                          Time taken: {time}
+                        </h5>
+                        <h5 className="  font-weight-bolder">
                           {/*insertScoreRemark()*/}
                         </h5>
-                        <p class=" ">
+                        <p className=" ">
                           <span>{score}</span> out of <span>{difficulty}</span>{" "}
                           points
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xl-6 col-md-6 mb-xl-0 mb-4">
+                  <div className="col-xl-6 col-md-6 mb-xl-0 mb-4">
                     <div>
-                      <div class="card-body px-1 pb-0">
-                        <h4 class=" font-weight-bolder mb-4">
+                      <div className="card-body px-1 pb-0">
+                        <h4 className=" font-weight-bolder mb-4">
                           {" "}
                           {`${(score / difficulty) * 100}%`}
                         </h4>
@@ -153,56 +161,59 @@ const Result = ({
             </div>
           </div>
         </div>
-        <div class="col-lg-6 mt-4">
-          <div class=" card h-100 p-3" style={{ backgroundColor: "#CB0C9F" }}>
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
-              <span class="mask bg-gradient-dark"></span>
+        <div className="col-lg-6 mt-4">
+          <div
+            className=" card h-100 p-3"
+            style={{ backgroundColor: "#CB0C9F" }}
+          >
+            <div className="overflow-hidden position-relative border-radius-lg bg-cover h-100 bg-white">
+              <span className="mask bg-gradient-dark"></span>
               <div
-                class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+                className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
                 style={{ backgroundColor: "white" }}
               >
-                <h4 class="  font-weight-bolder mb-4 pt-4">
+                <h4 className="  font-weight-bolder mb-4 pt-4">
                   Acquired medals in this assessment:
                 </h4>
 
-                <ul class="list-inline-group">{renderedMedals}</ul>
+                <ul className="list-inline-group">{renderedMedals}</ul>
               </div>
             </div>
           </div>
         </div>
         {renderAnswers}
-        <div class="col-lg-12 mt-4">
+        <div className="col-lg-12 mt-4">
           <div
-            class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+            className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
             style={{ backgroundColor: "white" }}
           >
-            <ul class="list-inline">
-              <li class="list-inline-item">
+            <ul className="list-inline">
+              <li className="list-inline-item">
                 {" "}
-                <Link class=" " href="/assessments">
+                <Link className=" " href="/assessments">
                   <button
                     id="goToAssessmentBtn float-start"
-                    class="btn bg-gradient-secondary mb-0 px-2 text-white"
+                    className="btn bg-gradient-secondary mb-0 px-2 text-white"
                     type="button"
                   >
                     <i
-                      class="fas fa-arrow-left text-sm ms-1"
+                      className="fas fa-arrow-left text-sm ms-1"
                       aria-hidden="true"
                     ></i>
                     Practice assessments{" "}
                   </button>
                 </Link>
               </li>
-              <li class="list-inline-item float-end">
+              <li className="list-inline-item float-end">
                 <Link href="/test">
                   <button
                     id="retakeBtn"
-                    class="btn bg-gradient-primary mb-0 px-2 text-white"
+                    className="btn bg-gradient-primary mb-0 px-2 text-white"
                     type="button"
                   >
                     Retake assessment
                     <i
-                      class="fas fa-arrow-right text-sm ms-1"
+                      className="fas fa-arrow-right text-sm ms-1"
                       aria-hidden="true"
                     ></i>
                   </button>

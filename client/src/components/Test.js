@@ -121,7 +121,7 @@ const Test = ({
 
   //Button click
   const onButtonClick = () => {
-    if (answer === "" && num != 0) {
+    if (answer === "" && num !== 0) {
       pause();
 
       handleNoShow();
@@ -130,7 +130,7 @@ const Test = ({
       selectPageNum(numberOfQuestions[num]);
       selectActiveRadio(false);
 
-      if (testQuestions.length != 0) {
+      if (testQuestions.length !== 0) {
         answer === testQuestions[activeQuestion].ans
           ? selectScore(score + 1)
           : selectScore(score + 0);
@@ -160,8 +160,8 @@ const Test = ({
     }
     return (
       <>
-        <li class="list-inline-item">
-          <button class={`btn btn-outline-success btn-sm ${active} `}>
+        <li className="list-inline-item">
+          <button className={`btn btn-outline-success btn-sm ${active} `}>
             {num}
           </button>
         </li>
@@ -219,10 +219,10 @@ const Test = ({
     num < totalNum ? (
       <>
         {" "}
-        <li class="list-inline-item">
+        <li className="list-inline-item">
           <button
             onClick={(e) => onButtonClick()}
-            class="btn btn-outline-success btn-rounded btn-sm"
+            className="btn btn-outline-success btn-rounded btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#modal-default"
           >
@@ -231,10 +231,10 @@ const Test = ({
         </li>
       </>
     ) : (
-      <li class="list-inline-item">
+      <li className="list-inline-item">
         <button
           onClick={(e) => onButtonClick()}
-          class="btn btn-outline-success btn-rounded btn-sm"
+          className="btn btn-outline-success btn-rounded btn-sm"
           data-bs-toggle="modal"
           data-bs-target="#modal-default"
         >
@@ -245,27 +245,27 @@ const Test = ({
 
   //Main return
   return (
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12 mt-4">
-          <div class="card mb-4">
-            <div class="card-header pb-0 p-3">
-              <p class="text-center">
+    <div className="container-fluid py-4">
+      <div className="row">
+        <div className="col-12 mt-4">
+          <div className="card mb-4">
+            <div className="card-header pb-0 p-3">
+              <p className="text-center">
                 Time: <span>{minutes}</span>:<span>{seconds}</span>
               </p>
-              <p class="text-center">
+              <p className="text-center">
                 Question <span>{pageNum}</span> of {totalNum}
               </p>
 
-              <p class="text-start ">{currentQuestion}</p>
+              <p className="text-start ">{currentQuestion}</p>
             </div>
             <div className=" p-3 d-flex justify-content-center">{ifImage}</div>
-            <div class="card-body p-3 d-flex justify-content-center">
-              <div class="row d-flex justify-content-left">
+            <div className="card-body p-3 d-flex justify-content-center">
+              <div className="row d-flex justify-content-left">
                 <div>
                   <Form>{renderedChoices}</Form>
                 </div>
-                <ul class="pagination-success pagination-sm justify-content-center">
+                <ul className="pagination-success pagination-sm justify-content-center">
                   {renderedItems}
                   {onNext}
                 </ul>

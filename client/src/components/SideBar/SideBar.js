@@ -124,40 +124,40 @@ const SideBar = ({ user }) => {
 
   return (
     <aside
-      class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
+      className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
       id="sidenav-main"
       style={{ backgroundColor: "white" }}
     >
       <ScrollBar component="aside">
-        <div class="sidenav-header">
+        <div className="sidenav-header">
           <i
-            class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+            className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true"
             id="iconSidenav"
           ></i>
           <a
-            class="navbar-brand m-0"
+            className="navbar-brand m-0"
             href="/dashboard.html"
             target="_blank"
             rel="noreferrer"
           >
             <img
               src="/logoct.png"
-              class="navbar-brand-img h-100"
+              className="navbar-brand-img h-100"
               alt="main_logo"
             />
-            <span class="ms-1 font-weight-bold">Brain Train</span>
+            <span className="ms-1 font-weight-bold">Brain Train</span>
           </a>
         </div>
-        <hr class="horizontal dark mt-0" />
+        <hr className="horizontal dark mt-0" />
         <div
-          class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100"
+          className="collapse navbar-collapse  w-auto  max-height-vh-100 h-100"
           id="sidenav-collapse-main"
         >
-          <ul class="navbar-nav">
-            <li class="nav-item mt-3">
+          <ul className="navbar-nav">
+            <li className="nav-item mt-3">
               {renderedBar}
-              <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+              <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
                 Account
               </h6>
               {renderedAccountBar}

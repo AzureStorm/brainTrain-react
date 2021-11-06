@@ -13,7 +13,9 @@ const SignInCard = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const onLoginSubmit = () => {
+  const onLoginSubmit = (e) => {
+    e.preventDefault();
+    console.log("Enterred");
     if (email === "" || password === "") {
       selectStatement("Empty field");
       handleShow();
@@ -30,20 +32,11 @@ const SignInCard = () => {
         });
     }
   };
-  {
-    /**  <input
-              onChange={(event) => {
-                selectEmail(event.target.value);
-              }}
-              id="username"
-              type="email"
-              name="username"
-              className="form-control"
-              placeholder="Email"
-              aria-label="Email"
-              aria-describedby="email-addon"
-            />*/
-  }
+
+  const onGoogleClick = () => {
+    window.location.assign("auth/google");
+  };
+
   return (
     <>
       <div className="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
@@ -51,24 +44,29 @@ const SignInCard = () => {
           <br />
           <br />
           <br />
+          <h3 className="text-center text-dark mb-4">Sign In.</h3>
 
+          <button
+            onClick={() => onGoogleClick()}
+            value="Google OAuth"
+            id="google"
+            className="btn w-100 mb-0"
+            style={{
+              color: "#efca2e",
+              border: "1px solid #efca2e",
+              backgroundColor: "white",
+            }}
+          >
+            <i className="fa fa-google-plus-square">&nbsp;</i> Sign in with
+            Google
+          </button>
           <div className="card-body">
-            <form role="form text-left" action="auth/google">
-              <h3 className="text-center text-dark mb-4">Sign In.</h3>
-              <button
-                value="Google OAuth"
-                id="google"
-                type="submit"
-                className="btn w-100 mb-0"
-                style={{
-                  color: "#efca2e",
-                  border: "1px solid #efca2e",
-                  backgroundColor: "white",
-                }}
-              >
-                <i className="fa fa-google-plus-square">&nbsp;</i> Sign in with
-                Google
-              </button>
+            <form
+              role="form text-left"
+              onSubmit={(e) => {
+                onLoginSubmit(e);
+              }}
+            >
               <div className="mb-3">
                 <p>
                   <small>
@@ -114,9 +112,9 @@ const SignInCard = () => {
                 </a>
               </div>
               <button
-                onClick={onLoginSubmit}
+                onClick={(e) => onLoginSubmit(e)}
                 id="sign-in"
-                type="button"
+                type="submit"
                 className="btn w-100 my-4 mb-2"
                 style={{ backgroundColor: "#efac2e", color: "white" }}
               >

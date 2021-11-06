@@ -70,7 +70,7 @@ const OverView = ({ selectDifficulty, selectQuarter }) => {
     window.location.pathname === "/modules" ? "./categories" : "./test";
 
   return (
-    <div class="container-fluid py-4">
+    <div className="container-fluid py-4">
       <div className="row">
         <OverViewCard
           text={selectedView}

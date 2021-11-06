@@ -25,12 +25,12 @@ const Recover = () => {
   };
 
   return (
-    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-      <div class="card-plain mt-4">
-        <div class="card-body">
+    <div className="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+      <div className="card-plain mt-4">
+        <div className="card-body">
           <form role="form text-left" onSubmit={(e) => onFormSubmit(e)}>
-            <h3 class="text-center text-dark mb-2">Change Password</h3>
-            <div class="mb-0">
+            <h3 className="text-center text-dark mb-2">Change Password</h3>
+            <div className="mb-0">
               <p>
                 <small>
                   <center>
@@ -40,11 +40,11 @@ const Recover = () => {
               </p>
             </div>
 
-            <div class="mb-3">
+            <div className="mb-3">
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                class="form-control"
+                className="form-control"
                 placeholder="New Password"
                 aria-label="Email"
                 aria-describedby="email-addon"
@@ -53,7 +53,7 @@ const Recover = () => {
                 onClick={() => onButtonClick()}
                 id="sign-in"
                 type="button"
-                class="btn w-100 my-4 mb-2"
+                className="btn w-100 my-4 mb-2"
                 style={{ backgroundColor: "#efac2e", color: "white" }}
               >
                 Change Password

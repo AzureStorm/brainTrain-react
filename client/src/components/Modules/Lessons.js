@@ -37,7 +37,7 @@ const Lessons = ({ lessonNum, lessonMax, header }) => {
     setIndex(selectedIndex);
   };
   return (
-    <div class="container-fluid py-4">
+    <div className="container-fluid py-4">
       <Carousel
         variant="dark"
         activeIndex={index}

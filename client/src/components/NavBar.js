@@ -41,9 +41,9 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
           id="navbar"
         >
           <div className="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body">
-                <i class="fas fa-search" aria-hidden="true"></i>
+            <div className="input-group">
+              <span className="input-group-text text-body">
+                <i className="fas fa-search" aria-hidden="true"></i>
               </span>
               <form
                 onSubmit={(e) => {
@@ -55,7 +55,7 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
                     onTextchange(e.target.value);
                   }}
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search here..."
                 />
               </form>

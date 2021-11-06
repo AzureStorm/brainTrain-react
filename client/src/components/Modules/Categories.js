@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ListGroup from "react-bootstrap/ListGroup";
-import Link from "../Link";
 import RC1 from "../Tables/RC1";
 
 const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
@@ -201,7 +199,6 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
         variant="light"
         size="lg"
         className="text-center nav-link mb-0 px-0 py-1"
-        variant="light"
         href={`#${topic}`}
         onClick={() => {
           onTopicClicked(index);
@@ -214,29 +211,29 @@ const Categories = ({ selectLessonNum, selectLessonMax, selectHeader }) => {
 
   return (
     <>
-      <div class="container-fluid py-4">
-        <ListGroup class="nav nav-pills nav-fill p-1" role="tablist">
+      <div className="container-fluid py-4">
+        <ListGroup className="nav nav-pills nav-fill p-1" role="tablist">
           <ButtonGroup aria-label="Basic example">{renderedItems}</ButtonGroup>
         </ListGroup>
       </div>
-      <div class="container-fluid py-4 tab-content">
-        <div id="reading" class="tab-pane fade in show active">
-          <div class="card">
-            <div class="table-responsive">
-              <table class="table align-items-center mb-0">
+      <div className="container-fluid py-4 tab-content">
+        <div id="reading" className="tab-pane fade in show active">
+          <div className="card">
+            <div className="table-responsive">
+              <table className="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       No.
                     </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                       Topic
                     </th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Description
                     </th>
-                    <th class="text-secondary opacity-7"></th>
-                    <th class="text-secondary opacity-7"></th>
+                    <th className="text-secondary opacity-7"></th>
+                    <th className="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
                 {console.log(activeTopic)}

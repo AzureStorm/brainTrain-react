@@ -21,21 +21,21 @@ const ForgotPassCard = () => {
   };
 
   return (
-    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-      <div class="card-plain mt-4">
+    <div className="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+      <div className="card-plain mt-4">
         <br />
         <br />
         <br />
 
-        <div class="card-body">
+        <div className="card-body">
           <form
             onSubmit={(e) => {
               onFormSubmit(e);
             }}
             role="form text-left"
           >
-            <h3 class="text-center text-dark mb-2">Forgot Password?</h3>
-            <div class="mb-0">
+            <h3 className="text-center text-dark mb-2">Forgot Password?</h3>
+            <div className="mb-0">
               <p>
                 <small>
                   <center>
@@ -48,11 +48,11 @@ const ForgotPassCard = () => {
               </p>
             </div>
 
-            <div class="mb-3">
+            <div className="mb-3">
               <input
                 onChange={(e) => selectEmail(e.target.value)}
                 type="email"
-                class="form-control"
+                className="form-control"
                 placeholder="Email"
                 aria-label="Email"
                 aria-describedby="email-addon"
@@ -61,16 +61,16 @@ const ForgotPassCard = () => {
                 onClick={() => onButtonClick()}
                 id="sign-in"
                 type="button"
-                class="btn w-100 my-4 mb-2"
+                className="btn w-100 my-4 mb-2"
                 style={{ backgroundColor: "#efac2e", color: "white" }}
               >
                 Send Confirmation Email
               </button>
-              <p class="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
+              <p className="mb-0" id="last-text" style={{ fontSize: "10.5px" }}>
                 Don't have an account?{" "}
                 <a
                   href="sign-up.html"
-                  class="font-weight-bolder"
+                  className="font-weight-bolder"
                   id="flexCheckDefault"
                   target="_blank"
                   style={{ color: "#efac2e" }}

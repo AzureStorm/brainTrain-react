@@ -205,8 +205,8 @@ const SignUpCard = () => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div class="modal-body overflow-auto ">
-              <div class="text-justify">
+            <div className="modal-body overflow-auto ">
+              <div className="text-justify">
                 <h3>Privacy Policy</h3>
                 <p>Last updated: October 11, 2021</p>
                 <p>
@@ -223,6 +223,7 @@ const SignUpCard = () => {
                   <a
                     href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Privacy Policy Generator
                   </a>
@@ -310,6 +311,7 @@ const SignUpCard = () => {
                         href="www.braintr-ain.herokuapp.com"
                         rel="external nofollow noopener"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         www.braintr-ain.herokuapp.com
                       </a>
@@ -400,6 +402,7 @@ const SignUpCard = () => {
                       href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
                       rel="external nofollow noopener"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
                     </a>
@@ -424,6 +427,7 @@ const SignUpCard = () => {
                   <a
                     href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Use of Cookies by Free Privacy Policy
                   </a>
@@ -745,6 +749,7 @@ const SignUpCard = () => {
                       href="https://tinyurl.com/BrainTrain2021"
                       rel="external nofollow noopener"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       https://tinyurl.com/BrainTrain2021
                     </a>

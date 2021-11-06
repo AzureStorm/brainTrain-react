@@ -6,7 +6,6 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import OverView from "./OverView";
 import Dashboard from "./Dashboard";
-import About from "./About";
 import Route from "./Route";
 import SignIn from "./SignIn";
 import Categories from "./Modules/Categories";
@@ -95,9 +94,6 @@ const App = () => {
                 selectDifficulty={selectDifficulty}
                 selectQuarter={selectQuarter}
               />
-            </Route>
-            <Route path="/about">
-              <About />
             </Route>
 
             <Route path="/categories">

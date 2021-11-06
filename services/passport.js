@@ -70,7 +70,7 @@ passport.use(
         console.log("Wrong user");
         return done(null, false, { message: "Incorrect username." });
       }
-      if (user.password != password) {
+      if (user.password !== password) {
         console.log("Wrong pass");
         return done(null, false, { message: "Incorrect password." });
       }

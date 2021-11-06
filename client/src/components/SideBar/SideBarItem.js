@@ -30,15 +30,15 @@ const SideBarItem = ({
             <g
               id="Basic-Elements"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               <g
                 id="Rounded-Icons"
                 transform={transform1}
                 fill="#FFFFFF"
-                fill-rule="nonzero"
+                fillRule="nonzero"
               >
                 <g
                   id="Icons-with-opacity"

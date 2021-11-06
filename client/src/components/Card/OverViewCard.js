@@ -20,11 +20,11 @@ const OverViewCard = ({
     if (selectedRoute === "./categories") {
       return (
         <Link
-          class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+          className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
           href={selectedRoute}
         >
           {texts.routeHeader}
-          <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+          <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
         </Link>
       );
     } else {
@@ -38,7 +38,7 @@ const OverViewCard = ({
           style={{ color: "black", textAlign: "left" }}
         >
           {texts.routeHeader}
-          <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+          <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
         </Button>
       );
     }
@@ -46,16 +46,16 @@ const OverViewCard = ({
 
   const renderedCard = text.map((texts, index) => {
     return (
-      <div class="col-lg-6 mt-4">
+      <div className="col-lg-6 mt-4">
         <div
-          class="card h-100 p-3 border-radius-lg"
+          className="card h-100 p-3 border-radius-lg"
           style={{
             backgroundImage: `url(img/${texts.pic}.png)`,
             borderRadius: "15px",
           }}
         >
           <div
-            class="
+            className="
                   overflow-hidden
                   position-relative
                   border-radius-lg
@@ -65,7 +65,7 @@ const OverViewCard = ({
                 "
           >
             <div
-              class="
+              className="
                     card-body
                     position-relative
                     z-index-1
@@ -75,8 +75,8 @@ const OverViewCard = ({
                     p-3
                   "
             >
-              <h5 class="font-weight-bolder mb-4 pt-2">{texts.head}</h5>
-              <p class="">{texts.details}</p>
+              <h5 className="font-weight-bolder mb-4 pt-2">{texts.head}</h5>
+              <p className="">{texts.details}</p>
               {selectedPath(texts, index)}
             </div>
           </div>
@@ -96,12 +96,12 @@ const OverViewCard = ({
                 }}
               >
                 <Link
-                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                   href={selectedRoute}
                 >
                   Easy
                   <i
-                    class="fas fa-arrow-right text-sm ms-1"
+                    className="fas fa-arrow-right text-sm ms-1"
                     aria-hidden="true"
                   ></i>
                 </Link>
@@ -114,12 +114,12 @@ const OverViewCard = ({
                 variant="warning"
               >
                 <Link
-                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                   href={selectedRoute}
                 >
                   Medium
                   <i
-                    class="fas fa-arrow-right text-sm ms-1"
+                    className="fas fa-arrow-right text-sm ms-1"
                     aria-hidden="true"
                   ></i>
                 </Link>
@@ -132,12 +132,12 @@ const OverViewCard = ({
                 variant="danger"
               >
                 <Link
-                  class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                  className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                   href={selectedRoute}
                 >
                   Hard
                   <i
-                    class="fas fa-arrow-right text-sm ms-1"
+                    className="fas fa-arrow-right text-sm ms-1"
                     aria-hidden="true"
                   ></i>
                 </Link>

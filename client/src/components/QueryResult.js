@@ -43,28 +43,28 @@ const QueryResult = () => {
     return (
       <tr>
         <td>
-          <div class="d-flex px-2 py-1">
-            <p class="text-xs font-weight-bold mb-0">
+          <div className="d-flex px-2 py-1">
+            <p className="text-xs font-weight-bold mb-0">
               &nbsp;&nbsp;&nbsp;{index + 1}
             </p>
           </div>
         </td>
         <td>
-          <p class="text-xs font-weight-bold mb-0">{item.topic}</p>
+          <p className="text-xs font-weight-bold mb-0">{item.topic}</p>
         </td>
         <td>
-          <div class="align-middle text-center">
-            <p class="text-xs text-secondary mb-0">{item.description}</p>
+          <div className="align-middle text-center">
+            <p className="text-xs text-secondary mb-0">{item.description}</p>
           </div>
         </td>
-        <td class="align-middle">
+        <td className="align-middle">
           <button
-            class="btn btn-link text-secondary mb-0"
+            className="btn btn-link text-secondary mb-0"
             aria-haspopup="true"
             aria-expanded="false"
           >
             <a href={item.href + ".html"}>
-              <i class="fa fa-eye text-xs" aria-hidden="true"></i>
+              <i className="fa fa-eye text-xs" aria-hidden="true"></i>
             </a>
           </button>
         </td>
@@ -74,7 +74,7 @@ const QueryResult = () => {
 
   return (
     <>
-      <div class="container-fluid py-4 tab-content">
+      <div className="container-fluid py-4 tab-content">
         <Form
           onSubmit={(e) => {
             onFormSubmit(e);
@@ -91,23 +91,23 @@ const QueryResult = () => {
             <Form.Text></Form.Text>
           </Form.Group>
         </Form>
-        <div id="reading" class="tab-pane fade in show active">
-          <div class="card">
-            <div class="table-responsive">
-              <table class="table align-items-center mb-0">
+        <div id="reading" className="tab-pane fade in show active">
+          <div className="card">
+            <div className="table-responsive">
+              <table className="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       No.
                     </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                       Topic
                     </th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Description
                     </th>
-                    <th class="text-secondary opacity-7"></th>
-                    <th class="text-secondary opacity-7"></th>
+                    <th className="text-secondary opacity-7"></th>
+                    <th className="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
 

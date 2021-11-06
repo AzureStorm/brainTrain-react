@@ -12,42 +12,42 @@ const RC1 = ({ topicHeads, selectLessonNum, selectLessonMax }) => {
     return (
       <tr>
         <td>
-          <div class="d-flex px-2 py-1">
-            <p class="text-xs font-weight-bold mb-0">
+          <div className="d-flex px-2 py-1">
+            <p className="text-xs font-weight-bold mb-0">
               &nbsp;&nbsp;&nbsp;{item.num}
             </p>
           </div>
         </td>
         <td>
-          <p class="text-xs font-weight-bold mb-0">{item.head}</p>
-          <p class="text-xs text-secondary mb-0">{item.sub}</p>
+          <p className="text-xs font-weight-bold mb-0">{item.head}</p>
+          <p className="text-xs text-secondary mb-0">{item.sub}</p>
         </td>
         <td>
-          <div class="align-middle text-center">
-            <p class="text-xs text-secondary mb-0">{item.desc}</p>
+          <div className="align-middle text-center">
+            <p className="text-xs text-secondary mb-0">{item.desc}</p>
           </div>
         </td>
-        <td class="align-middle">
+        <td className="align-middle">
           <button
             onClick={(e) => {
               lessonClicked(item.num, item.max);
             }}
-            class="btn btn-link text-secondary mb-0"
+            className="btn btn-link text-secondary mb-0"
             aria-haspopup="true"
             aria-expanded="false"
           >
             <Link href={path}>
-              <i class="fa fa-eye text-xs" aria-hidden="true"></i>
+              <i className="fa fa-eye text-xs" aria-hidden="true"></i>
             </Link>
           </button>
         </td>
-        <td class="align-middle">
+        <td className="align-middle">
           <button
-            class="btn btn-link text-secondary mb-0"
+            className="btn btn-link text-secondary mb-0"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i class="fa fa-share text-xs" aria-hidden="true"></i>
+            <i className="fa fa-share text-xs" aria-hidden="true"></i>
           </button>
         </td>
       </tr>
