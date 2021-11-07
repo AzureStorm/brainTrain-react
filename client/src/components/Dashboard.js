@@ -13,7 +13,7 @@ const Dashboard = () => {
                   <div className="position-relative d-flex align-items-center justify-content-center h-100">
                     <img
                       alt="bt-Background"
-                      className="w-90 position-relative z-index-2 pt-4"
+                      className="w-70 position-relative z-index-2 pt-4"
                       id="brain"
                       src="/img/background/brain.gif"
                     />
