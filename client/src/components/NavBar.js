@@ -1,8 +1,24 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 
 const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
   const [query, setQuery] = useState("");
+  const [where, setWhere] = useState("Home");
+
+  useEffect(() => {
+    console.log("Hello sidebar");
+    var where =
+      window.location.pathname === "/"
+        ? "Home"
+        : window.location.pathname === "/assessments"
+        ? "Assessments"
+        : window.location.pathname === "/profile"
+        ? "Profile"
+        : window.location.pathname === "/query"
+        ? "Query"
+        : "Result";
+    setWhere(where);
+  }, []);
+
   const onFormSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("query", query);
@@ -31,10 +47,10 @@ const NavBar = ({ user, navbarPinned, selectNavBarPinned }) => {
               className="breadcrumb-item text-sm text-dark active"
               aria-current="page"
             >
-              Home
+              {where}
             </li>
           </ol>
-          <h6 className="font-weight-bolder mb-0">Home</h6>
+          <h6 className="font-weight-bolder mb-0">{where}</h6>
         </nav>
         <div
           className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"

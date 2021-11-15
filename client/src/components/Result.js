@@ -19,17 +19,45 @@ const Result = ({
     switch (quarter) {
       case 1:
         totalAttempts = user.firstAttempts;
+        if (difficulty === 10) {
+          score = score > user.firstHighEasy ? score : user.firstHighEasy;
+        } else if (difficulty === 20) {
+          score = score > user.firstHighMedium ? score : user.firstHighMedium;
+        } else if (difficulty === 40) {
+          score = score > user.firstHighHard ? score : user.firstHighHard;
+        }
         break;
 
       case 2:
         totalAttempts = user.secondAttempts;
+        if (difficulty === 10) {
+          score = score > user.secondHighEasy ? score : user.secondHighEasy;
+        } else if (difficulty === 20) {
+          score = score > user.secondHighMedium ? score : user.secondHighMedium;
+        } else if (difficulty === 40) {
+          score = score > user.secondHighHard ? score : user.secondHighHard;
+        }
         break;
       case 3:
         totalAttempts = user.thirdAttempts;
+        if (difficulty === 10) {
+          score = score > user.thirdHighEasy ? score : user.thirdHighEasy;
+        } else if (difficulty === 20) {
+          score = score > user.thirdHighMedium ? score : user.thirdHighMedium;
+        } else if (difficulty === 40) {
+          score = score > user.thirdHighHard ? score : user.thirdHighHard;
+        }
         break;
 
       case 4:
         totalAttempts = user.fourthAttempts;
+        if (difficulty === 10) {
+          score = score > user.fourthHighEasy ? score : user.fourthHighEasy;
+        } else if (difficulty === 20) {
+          score = score > user.fourthHighMedium ? score : user.fourthHighMedium;
+        } else if (difficulty === 40) {
+          score = score > user.fourthHighHard ? score : user.fourthHighHard;
+        }
         break;
     }
 
