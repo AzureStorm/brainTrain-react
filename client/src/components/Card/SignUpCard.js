@@ -744,15 +744,8 @@ const SignUpCard = () => {
                 </p>
                 <ul>
                   <li>
-                    By visiting this page on our website:{" "}
-                    <a
-                      href="https://tinyurl.com/BrainTrain2021"
-                      rel="external nofollow noopener"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      https://tinyurl.com/BrainTrain2021
-                    </a>
+                    By sending us an email:
+                    nicoleadrienne.vicente.iics@ust.edu.ph
                   </li>
                 </ul>
               </div>
