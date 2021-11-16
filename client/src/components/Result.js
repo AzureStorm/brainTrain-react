@@ -1,4 +1,5 @@
 import axios from "axios";
+import cookieSession from "cookie-session";
 import React, { useEffect } from "react";
 import Link from "./Link";
 
@@ -15,49 +16,79 @@ const Result = ({
 }) => {
   useEffect(() => {
     var totalAttempts = 0;
-
+    console.log("reslrs are: ");
+    console.log(score);
     switch (quarter) {
       case 1:
         totalAttempts = user.firstAttempts;
+        console.log(score);
         if (difficulty === 10) {
-          score = score > user.firstHighEasy ? score : user.firstHighEasy;
+          if (user.firstHighEasy) {
+            score = score > user.firstHighEasy ? score : user.firstHighEasy;
+          }
         } else if (difficulty === 20) {
-          score = score > user.firstHighMedium ? score : user.firstHighMedium;
+          if (user.firstHighEasy) {
+            score = score > user.firstHighMedium ? score : user.firstHighMedium;
+          }
         } else if (difficulty === 40) {
-          score = score > user.firstHighHard ? score : user.firstHighHard;
+          if (user.firstHighEasy) {
+            score = score > user.firstHighHard ? score : user.firstHighHard;
+          }
         }
         break;
 
       case 2:
         totalAttempts = user.secondAttempts;
         if (difficulty === 10) {
-          score = score > user.secondHighEasy ? score : user.secondHighEasy;
+          if (user.firstHighEasy) {
+            score = score > user.secondHighEasy ? score : user.secondHighEasy;
+          }
         } else if (difficulty === 20) {
-          score = score > user.secondHighMedium ? score : user.secondHighMedium;
+          if (user.firstHighEasy) {
+            score =
+              score > user.secondHighMedium ? score : user.secondHighMedium;
+          }
         } else if (difficulty === 40) {
-          score = score > user.secondHighHard ? score : user.secondHighHard;
+          if (user.firstHighEasy) {
+            score = score > user.secondHighHard ? score : user.secondHighHard;
+          }
         }
         break;
       case 3:
         totalAttempts = user.thirdAttempts;
         if (difficulty === 10) {
-          score = score > user.thirdHighEasy ? score : user.thirdHighEasy;
+          if (user.firstHighEasy) {
+            score = score > user.thirdHighEasy ? score : user.thirdHighEasy;
+          }
         } else if (difficulty === 20) {
-          score = score > user.thirdHighMedium ? score : user.thirdHighMedium;
+          if (user.firstHighEasy) {
+            score = score > user.thirdHighMedium ? score : user.thirdHighMedium;
+          }
         } else if (difficulty === 40) {
-          score = score > user.thirdHighHard ? score : user.thirdHighHard;
+          if (user.firstHighEasy) {
+            score = score > user.thirdHighHard ? score : user.thirdHighHard;
+          }
         }
         break;
 
       case 4:
         totalAttempts = user.fourthAttempts;
         if (difficulty === 10) {
-          score = score > user.fourthHighEasy ? score : user.fourthHighEasy;
+          if (user.firstHighEasy) {
+            score = score > user.fourthHighEasy ? score : user.fourthHighEasy;
+          }
         } else if (difficulty === 20) {
-          score = score > user.fourthHighMedium ? score : user.fourthHighMedium;
+          if (user.firstHighEasy) {
+            score =
+              score > user.fourthHighMedium ? score : user.fourthHighMedium;
+          }
         } else if (difficulty === 40) {
-          score = score > user.fourthHighHard ? score : user.fourthHighHard;
+          if (user.firstHighEasy) {
+            score = score > user.fourthHighHard ? score : user.fourthHighHard;
+          }
         }
+        console.log("end is:");
+        console.log(score);
         break;
     }
 
