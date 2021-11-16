@@ -6,17 +6,29 @@ const Recover = () => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState(localStorage.getItem("email_forgot"));
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [msg, setMsg] = useState("");
 
   const handleClose = () => (setShow(false), window.location.assign("/"));
   const handleShow = () => setShow(true);
+  const handleCloseModal = () => setShow(false);
 
   const onButtonClick = () => {
-    axios
-      .post("api/new_password", { email: email, password: password })
-      .then((res) => {
-        localStorage.removeItem("email_forgot");
-        handleShow();
-      });
+    "Password mismatch. Wrong Confirm Password";
+    if (password === confirmPassword) {
+      setMsg(
+        "We have changed your account's password successfully. Please log-in to Brain Train"
+      );
+      axios
+        .post("api/new_password", { email: email, password: password })
+        .then((res) => {
+          localStorage.removeItem("email_forgot");
+          handleShow();
+        });
+      return;
+    }
+    setMsg("Password Mismatch. Wrong Confirm Password");
+    handleShow();
   };
 
   const onFormSubmit = (e) => {
@@ -46,8 +58,12 @@ const Recover = () => {
                 type="password"
                 className="form-control"
                 placeholder="New Password"
-                aria-label="Email"
-                aria-describedby="email-addon"
+              />
+              <input
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                type="password"
+                className="form-control"
+                placeholder="Confirm New Password"
               />
               <button
                 onClick={() => onButtonClick()}
@@ -66,12 +82,16 @@ const Recover = () => {
         <Modal.Header closeButton>
           <Modal.Title>Email Sent</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <p>We have changed your account's password successfully.</p> Please
-          log-in to Brain Train
-        </Modal.Body>
+        <Modal.Body>{msg}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={(e) => handleClose()}>
+          <Button
+            variant="primary"
+            onClick={(e) =>
+              msg === "Password Mismatch. Wrong Confirm Password"
+                ? handleCloseModal()
+                : handleClose()
+            }
+          >
             Close
           </Button>
         </Modal.Footer>
