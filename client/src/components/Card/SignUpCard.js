@@ -12,6 +12,7 @@ const SignUpCard = () => {
   const [show, setShow] = useState(false);
   const [statement, selectStatement] = useState("");
   const [check, selectCheck] = useState(false);
+  const [confirmPassword, selectConfirmPassword] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,6 +28,10 @@ const SignUpCard = () => {
       password === ""
     ) {
       selectStatement("Empty field");
+    } else if (password !== confirmPassword) {
+      selectStatement(
+        "Wrong Confirm Password. Make sure Password and Confirm Password is the same"
+      );
     } else {
       selectStatement("Thank you for signing up!");
 
@@ -121,6 +126,18 @@ const SignUpCard = () => {
                   type="password"
                   className="form-control"
                   placeholder="Password"
+                  aria-label="Password"
+                  aria-describedby="password-addon"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  onChange={(event) => {
+                    selectConfirmPassword(event.target.value);
+                  }}
+                  type="password"
+                  className="form-control"
+                  placeholder="Confirm Password"
                   aria-label="Password"
                   aria-describedby="password-addon"
                 />
